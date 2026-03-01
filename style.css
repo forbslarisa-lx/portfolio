@@ -404,3 +404,36 @@ a:hover{ color:inherit; }
 @media (max-width: 480px){
   .hero{ height:68vh; }
 }
+
+/* ===== CARD ENHANCER (force) ===== */
+.card, .tile, .panel, .box{
+  background:linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%) !important;
+  border:1px solid rgba(31,31,31,.08) !important;
+  border-radius:18px !important;
+  box-shadow:
+    0 10px 26px rgba(15,76,92,.08),
+    0 1px 0 rgba(0,0,0,.03) !important;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before, .tile::before, .panel::before, .box::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(28,167,166,.85), rgba(79,189,186,.65));
+  opacity:.65;
+}
+
+.card:hover, .tile:hover, .panel:hover, .box:hover{
+  transform:translateY(-4px);
+  border-color:rgba(28,167,166,.45) !important;
+  box-shadow:
+    0 18px 50px rgba(15,76,92,.14),
+    0 1px 0 rgba(0,0,0,.03) !important;
+}
+
