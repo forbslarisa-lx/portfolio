@@ -97,10 +97,10 @@ a:hover{ color:var(--turquoise); }
   height:50vh;
   display:flex;
   align-items:center;
-  background:
-    linear-gradient(rgba(15,76,92,.72), rgba(15,76,92,.72)),
-    var(--deep-teal);
   color:#fff;
+  background:
+    linear-gradient(rgba(15,76,92,.76), rgba(15,76,92,.76)),
+    url("assets/img/hero.jpg") center/cover no-repeat;
 }
 
 .hero-inner{
