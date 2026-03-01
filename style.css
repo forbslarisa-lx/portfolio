@@ -100,7 +100,7 @@ a:hover{ color:var(--turquoise); }
   color:#fff;
   background:
     linear-gradient(rgba(15,76,92,.76), rgba(15,76,92,.76)),
-    url("assets/img/hero.png") center/cover no-repeat;
+    url("assets/img/hero.jpg") center/cover no-repeat;
 }
 
 .hero-inner{
