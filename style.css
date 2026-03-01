@@ -479,3 +479,24 @@ a:hover{ color:inherit; }
     0 1px 0 rgba(0,0,0,.03) !important;
 }
 
+.h2{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  font-size:26px;       
+  font-weight:700;         
+  letter-spacing:-0.01em;  
+  color:var(--charcoal);
+  margin:0 0 16px;
+  line-height:1.2;
+}
+@media (max-width: 768px){
+  .h2{
+    font-size:22px;
+  }
+}
+.rule{
+  height:3px;
+  border-radius:999px;
+}
