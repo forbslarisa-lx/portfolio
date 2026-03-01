@@ -107,19 +107,21 @@ a:hover{ color:inherit; }
   align-items:center;
   color:#fff;
   background:
+      linear-gradient(rgba(15,76,92,.76), rgba(15,76,92,.76)),
       url("assets/hero.jpg") center/cover no-repeat;
   position:relative;
-  overflow:hidden;
-    radial-gradient(800px 420px at 18% 22%, rgba(28,167,166,.24), transparent 55%),
-    radial-gradient(720px 420px at 85% 28%, rgba(242,183,5,.18), transparent 60%);
-  mix-blend-mode:screen;
-  opacity:.9;
+  overflow:hidden; 
 }
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
+  background:
+    radial-gradient(800px 420px at 18% 22%, rgba(28,167,166,.24), transparent 55%),
+    radial-gradient(720px 420px at 85% 28%, rgba(242,183,5,.18), transparent 60%);
+  mix-blend-mode:screen;
+  opacity:.9;
 }
 
 .hero-inner{
