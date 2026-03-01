@@ -101,20 +101,20 @@ a:hover{ color:inherit; }
   flex-wrap:nowrap;
 }
 
-/* базовый вид кнопки: видна всегда, не только active/hover */
+
 .nav-links a{
   display:inline-flex;
   align-items:center;
 
   font-size:15px;
-  font-weight:750;            /* 850 часто выглядит "грязно" на мобиле */
+  font-weight:750;            
   color:var(--deep-teal);
 
   padding:10px 14px;
   border-radius:999px;        /* pill */
   text-decoration:none;
 
-  background:rgba(255,255,255,.55);   /* чтобы "кнопка" была кнопкой */
+  background:rgba(255,255,255,.55);   
   border:1px solid rgba(31,31,31,.10);
   box-shadow:0 6px 18px rgba(15,76,92,.08);
 
@@ -250,6 +250,8 @@ transition:all .2s ease;
 .btn.primary{
   background:var(--gold);
   color:var(--charcoal);
+  box-shadow:0 10px 28px rgba(15,76,92,.12);
+transition:all .2s ease;
 }
 
 
@@ -257,6 +259,8 @@ transition:all .2s ease;
   background:#fff;
   color:var(--deep-teal);
   border:1px solid rgba(31,31,31,.10);
+  box-shadow:0 10px 28px rgba(15,76,92,.12);
+transition:all .2s ease;
 }
 
 .btn.ghost:hover{
