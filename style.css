@@ -255,7 +255,7 @@ transition:all .2s ease;
 }
 
 
-..btn.ghost{
+.btn.ghost{
   background:#fff;
   color:var(--deep-teal);
   border:1px solid rgba(31,31,31,.10);
