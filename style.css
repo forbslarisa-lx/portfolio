@@ -77,11 +77,11 @@ body{
 /* ---------- Hero ---------- */
 
 .hero{
-  min-height:70vh;
+  min-height:48vh;
   display:flex;
   align-items:center;
   background:
-    linear-gradient(rgba(15,76,92,.65), rgba(15,76,92,.65)),
+    linear-gradient(rgba(15,76,92,.62), rgba(15,76,92,.62)),
     var(--deep-teal);
   color:#fff;
 }
@@ -89,7 +89,7 @@ body{
 .hero-inner{
   max-width:1100px;
   margin:0 auto;
-  padding:80px 20px;
+  padding:52px 20px;
 }
 
 .kicker{
@@ -111,15 +111,17 @@ body{
 }
 
 .hero h1{
-  font-size:42px;
-  margin:18px 0 14px;
-  line-height:1.15;
+ font-size:46px;
+  margin:14px 0 10px;
+  line-height:1.12;
+  max-width:900px;
 }
 
 .hero p{
-  font-size:18px;
-  max-width:720px;
-  opacity:.95;
+   font-size:18px;
+  max-width:760px;
+  opacity:.92;
+  margin:0;
 }
 
 /* ---------- Buttons ---------- */
@@ -133,10 +135,14 @@ body{
 
 .btn{
   padding:12px 18px;
-  border-radius:12px;
-  font-weight:700;
+  border-radius:14px;
+  font-weight:800;
   font-size:14px;
   text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
 }
 
 .btn.primary{
