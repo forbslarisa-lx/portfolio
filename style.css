@@ -95,35 +95,44 @@ a:hover{ color:inherit; }
 }
 
 .nav-links{
-  display: flex;
-  gap: 20px;
-  flex-shrink: 0;  
-}
+  display:flex;
+  gap:20px;
+  flex-shrink:0;
+  flex-wrap:nowrap;
 }
 
+/* базовый вид кнопки: видна всегда, не только active/hover */
 .nav-links a{
+  display:inline-flex;
+  align-items:center;
+
   font-size:15px;
-  font-weight:850;
+  font-weight:750;            /* 850 часто выглядит "грязно" на мобиле */
   color:var(--deep-teal);
-  padding:10px 12px;
-  border-radius:14px;
+
+  padding:10px 14px;
+  border-radius:999px;        /* pill */
   text-decoration:none;
-  border:1px solid transparent;
-  transition:background .2s ease, border-color .2s ease, transform .2s ease;
+
+  background:rgba(255,255,255,.55);   /* чтобы "кнопка" была кнопкой */
+  border:1px solid rgba(31,31,31,.10);
+  box-shadow:0 6px 18px rgba(15,76,92,.08);
+
+  transition:background .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 
 .nav-links a:hover{
-  background:rgba(28,167,166,.08);
-  border-color:rgba(28,167,166,.18);
+  background:rgba(28,167,166,.10);
+  border-color:rgba(28,167,166,.20);
   transform:translateY(-1px);
+  box-shadow:0 8px 22px rgba(15,76,92,.10);
 }
 
 .nav-links a.active{
   background:#fff;
-  border-color:rgba(31,31,31,.10);
-  box-shadow:0 10px 30px rgba(15,76,92,.10);
+  border-color:rgba(31,31,31,.14);
+  box-shadow:0 10px 28px rgba(15,76,92,.12);
 }
-
 /* ---------- Hero (adaptive) ---------- */
 
 .hero{
@@ -155,20 +164,9 @@ a:hover{ color:inherit; }
 }
 
 /* Mobile */
-@media (max-width: 768px) {
-
-  .nav {
-    padding: 8px 0;   /* уменьшает высоту всей полосы */
-  }
-
-  .nav-inner {
-    gap: 8px;         /* если есть расстояние между блоками */
-  }
-
-  .nav-links a {
-    padding: 4px 8px; /* уменьшает "пузатость" кнопок */
-  }
-
+@media (max-width: 768px){
+  .nav-links{ gap:10px; }
+  .nav-links a{ padding:6px 10px; font-size:13px; }
 }
 
 .hero-inner{
