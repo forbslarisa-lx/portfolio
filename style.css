@@ -171,7 +171,9 @@ a:hover{ color:inherit; }
   opacity:.92;
   margin:0;
 }
-
+.hero h1, .hero p{
+  text-shadow:0 10px 30px rgba(0,0,0,.35);
+}
 @media (max-width: 1024px){
   .hero{ height:55vh; }
 }
