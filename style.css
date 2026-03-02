@@ -135,29 +135,32 @@ a:hover{ color:inherit; }
 }
 /* ---------- Hero (adaptive) ---------- */
 
-.hero {
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  color: #fff;
-  background: linear-gradient(rgba(15, 76, 92, .76), rgba(15, 76, 92, .76)),
-    url("assets/hero.jpg") center/cover no-repeat;
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transform: scale(1.05);
-  animation: fadeIn 1.5s ease-out forwards; /* Анимация */
+.hero{
+   height:50vh;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background:
+      linear-gradient(rgba(15,76,92,.76), rgba(15,76,92,.76)),
+      url("assets/hero.jpg") center/cover no-repeat;
+  position:relative;
+  overflow:hidden; 
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(800px 420px at 18% 22%, rgba(28,167,166,.24), transparent 55%),
+    radial-gradient(720px 420px at 85% 28%, rgba(242,183,5,.18), transparent 60%);
+  mix-blend-mode:screen;
+  opacity:.9;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* Desktop default (если ещё нет) */
+.nav {
+  padding: 18px 0;
 }
 
 /* Mobile */
@@ -309,7 +312,7 @@ section::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 70vh;
+  height: 50vh;
   background: linear-gradient(180deg, rgba(15,76,92,0.6) 0%, rgba(15,76,92,0) 100%);
   pointer-events: none;
   opacity: 0;
