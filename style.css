@@ -484,6 +484,7 @@ section::before {
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(15,76,92,.12);  /* Тень для картинки */
   max-width: 400px; /* Ограничим максимальную ширину */
+  transition: max-width 0.5s ease-out;
 }
 
 @media (max-width: 768px) {
