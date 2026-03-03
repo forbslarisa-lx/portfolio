@@ -611,17 +611,17 @@ section::before {
   font-size: 36px;
   font-weight: 700;
   white-space: nowrap;
-  display: flex; /* Используем Flexbox для текста */
-  flex-wrap: wrap; /* Это обеспечит перенос текста, если он выходит за пределы */
-  justify-content: center; /* Центрируем содержимое */
-  align-items: center; /* Вертикальное выравнивание */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .magnetic-text span {
   display: inline-block;
   opacity: 0; /* Сначала невидимы */
   position: relative;
-  animation: magneticAnimation 3s ease-out forwards, leakAnimation 1s ease-out forwards 3s; /* Две анимации */
+  animation: magneticAnimation 3s ease-out forwards, leakAnimation 1.5s ease-out forwards 4s; /* Анимации с задержкой */
   animation-delay: calc(var(--i) * 0.05s); /* Каждой букве свой срок задержки */
 }
 
