@@ -57,8 +57,8 @@
   <div class="container">
     <div class="about-content">
       <div class="about-text">
-        <h2 class="magnetic-text">About Me</h2>
-        <p class="magnetic-text">Hi, I'm Larisa Forbs, a **Learning Architect** with over 10 years of experience in L&D. I specialize in strategic course design, curriculum development, and adaptive learning solutions for a variety of educational and corporate settings. My work is driven by the belief that every learning project should meet the real needs of its users and strive for scalable, effective, and accessible solutions.</p>
+           <h2>About Me</h2>
+        <p>Hi, I'm Larisa Forbs, a Learning Architect with over 10 years of experience in L&D. I specialize in strategic course design, curriculum development, and adaptive learning solutions for a variety of educational and corporate settings. My work is driven by the belief that every learning project should meet the real needs of its users and strive for scalable, effective, and accessible solutions.</p>
         <a href="#contact" class="btn primary">Fill out the form!</a> <!-- Кнопка с ссылкой на форму -->
       </div>
       <div class="about-image">
@@ -193,31 +193,6 @@
     </div>
   </div>
 </section>
-
- <script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.magnetic-text').forEach(function (element) {
-    let text = element.innerText.split('');
-    element.innerHTML = ''; // Clear current content
-    text.forEach(function (char, index) {
-      let span = document.createElement('span');
-      span.innerText = char;
-      span.style.setProperty('--i', index); // Add delay for each character
-      element.appendChild(span);
-    });
-
-    let elementTop = element.getBoundingClientRect().top;
-    let triggerPoint = window.innerHeight / 1.5; // When 2/3 of element is visible
-
-    // Scroll event to add the 'active' class when the text is revealed
-    window.addEventListener('scroll', function () {
-      if (elementTop < triggerPoint) {
-        element.classList.add('active'); // Start animation once the element comes into view
-      }
-    });
-  });
-});
- </script>
   
 <footer class="footer">
   <div class="container">
