@@ -68,19 +68,15 @@
   </div>
 </section>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      document.querySelectorAll('.magnetic-text').forEach(function (element) {
-        let text = element.innerText.split('');
-        element.innerHTML = ''; // Очищаем содержимое элемента
-        text.forEach(function (char) {
-          let span = document.createElement('span'); // Создаем элемент span для каждой буквы
-          span.innerText = char; // Присваиваем букву тексту
-          element.appendChild(span); // Вставляем букву в элемент
-        });
-      });
-    });
-  </script>
+  document.querySelectorAll('.magnetic-text').forEach(function (element) {
+  let text = element.innerText.split('');
+  element.innerHTML = ''; // Очищаем содержимое
+  text.forEach(function (char) {
+    let span = document.createElement('span'); // Создаем span для каждой буквы
+    span.innerText = char; // Присваиваем букву
+    element.appendChild(span); // Вставляем букву в элемент
+  });
+});
   
 <section class="section">
   <div class="container">
