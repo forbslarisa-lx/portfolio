@@ -389,6 +389,13 @@ section::before {
 .card.full{ grid-column:span 12; }
 .card.third{ grid-column:span 4; }
 
+/* Для кликабельной карточки — изменение фона, увеличение и тень при ховере */
+.card.clickable:hover {
+  background-color: #f0f0f0; /* Легкое изменение фона */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Увеличенная тень */
+  transform: scale(1.05); /* Увеличение при ховере */
+}
+
 /* ---------- Pills ---------- */
 
 .meta{
