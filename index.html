@@ -195,9 +195,8 @@
 </section>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
+ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.magnetic-text').forEach(function (element) {
-    console.log("Found element:", element); // Проверяем, что элементы найдены
     let text = element.innerText.split('');
     element.innerHTML = ''; // Очищаем содержимое
     text.forEach(function (char) {
