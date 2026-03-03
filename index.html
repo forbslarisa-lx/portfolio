@@ -195,14 +195,14 @@
 </section>
 
   <script>
- document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.magnetic-text').forEach(function (element) {
-    let text = element.innerText.split('');
-    element.innerHTML = ''; // Очищаем содержимое
+    let text = element.innerText.split(''); 
+    element.innerHTML = ''; 
     text.forEach(function (char) {
-      let span = document.createElement('span'); // Создаем span для каждой буквы
-      span.innerText = char; // Присваиваем букву
-      element.appendChild(span); // Вставляем букву в элемент
+      let span = document.createElement('span'); 
+      span.innerText = char; 
+      element.appendChild(span); 
     });
   });
 });
