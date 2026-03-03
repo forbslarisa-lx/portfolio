@@ -610,42 +610,38 @@ section::before {
   position: relative;
   font-size: 36px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .magnetic-text span {
-  display: inline-block; /* Буквы должны располагаться в строке, а не наверху друг друга */
+  display: inline-block;
   opacity: 0; /* Сначала невидимы */
-  position: relative; /* Убираем абсолютное позиционирование */
-  animation: magneticAnimation 3s ease-out forwards, leakAnimation 1.5s ease-in forwards 3s; /* Применяем анимацию */
-  animation-delay: calc(0.1s * var(--i)); /* Задержка для каждой буквы */
+  position: relative;
+  animation: magneticAnimation 3s ease-out forwards, leakAnimation 1s ease-out forwards 3s; /* Две анимации */
+  animation-delay: calc(0.1s * var(--i)); /* Каждой букве свой срок задержки */
 }
 
 @keyframes magneticAnimation {
   0% {
     opacity: 0;
-    transform: translateX(-50px) translateY(-50px); /* Буквы стартуют за пределами */
+    transform: translateX(-50px) translateY(-50px); /* Стартуем за пределами */
   }
   30% {
     opacity: 1;
-    transform: translateX(0) translateY(0); /* Буквы приходят на свое место */
-  }
-  80% {
-    opacity: 1;
-    transform: translateX(0) translateY(0); /* Буквы остаются на месте */
+    transform: translateX(0) translateY(0); /* Буквы собираются на месте */
   }
   100% {
     opacity: 1;
-    transform: translateX(0) translateY(0); /* Буквы остаются на месте */
+    transform: translateX(0) translateY(0); /* Остаточное положение */
   }
 }
 
 @keyframes leakAnimation {
   0% {
     opacity: 1;
-    transform: translateX(0) translateY(0); /* Буквы остаются на месте */
+    transform: translateX(0) translateY(0); /* Начальное положение */
   }
   100% {
     opacity: 0;
-    transform: translateX(50px) translateY(50px) rotate(180deg); /* Буквы разлетаются */
+    transform: translateX(50px) translateY(50px) rotate(180deg); /* Разлет букв */
   }
-}
