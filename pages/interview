@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Interview Readiness for International Technical Assignments | Larisa Forbs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+        <strong>Larisa Forbs</strong>
+    <span>Learning Architect</span>
+    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="pages/strategy.html">Strategy</a>
+      <a href="pages/digital.html">Digital</a>
+      <a href="pages/signature.html">Signature</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <h1>Interview Readiness for International Technical Assignments</h1>
+    <p>Preparation for high-stakes international technical interviews for non-native English speakers.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="h2">
+      <span class="rule"></span>
+      CASE 2
+    </div>
+
+    <div class="case-details">
+      <h3>Project Title: Interview Readiness for International Technical Assignments</h3>
+      <p><strong>Organization / Industry:</strong> Confidential Nuclear Energy Org • Internal Talent Selection</p>
+      <p><strong>Date:</strong> 2023–2024 • In Progress (PowerPoint prototype, partial Rise migration)</p>
+      <p><strong>Solution Artifacts (Articulate Rise / PowerPoint):</strong> Job Interview Preparation eCourse</p>
+
+      <h4>Solution Overview</h4>
+      <p>Designed a blended interview-preparation course combining interview literacy, English-for-interviews skill-building, and psychological readiness. Structure and clarity were prioritized over language perfection.</p>
+
+      <h4>Problem Statement</h4>
+      <p>Highly qualified technical specialists were underperforming in English-language, high-stakes international interviews due to communication barriers, not competence. The organization required a fair, structured preparation system to prevent loss of strong candidates.</p>
+
+      <h4>My Role</h4>
+      <p>Instructional Designer & Content Developer</p>
+
+      <h4>Target Audience</h4>
+      <p>Mid- to senior-level technical professionals • Non-native English speakers • International assignment candidates</p>
+
+      <h4>Stakeholder & SME Alignment</h4>
+      <ul>
+        <li>Partnered with technical subject matter experts and HR stakeholders to define interview success criteria beyond technical knowledge</li>
+        <li>Translated expert input into structured, teachable interview frameworks for non-native English speakers</li>
+        <li>Managed confidentiality, compliance, and learner support through structured stakeholder reviews</li>
+      </ul>
+
+      <h4>Key Constraints & Challenges</h4>
+      <ul>
+        <li>Career-impacting interview stakes</li>
+        <li>High cognitive load: strategy + language</li>
+        <li>Anxiety-driven performance blocks</li>
+      </ul>
+
+      <h4>Learning Outcomes</h4>
+      <ul>
+        <li>Interview Readiness: Identify interview formats, understand evaluation criteria, structure responses under pressure.</li>
+        <li>English Confidence: Deliver clear professional answers, manage pauses, reframe mistakes, request clarification.</li>
+      </ul>
+
+      <h4>Instructional Design Strategies</h4>
+      <ul>
+        <li>Decomposition: Interviews broken into intent, structure, language, delivery.</li>
+        <li>Structure Over Fluency: Repeatable response frameworks.</li>
+        <li>Language Scaffolding: Model answers, sentence starters, transitions.</li>
+        <li>Psychological Safety: Normalization of pauses, clarification, reformulation.</li>
+        <li>Tool-Conscious Design: Rapid iteration in PowerPoint before Rise 360 migration.</li>
+      </ul>
+
+      <h4>Assessment & Evaluation</h4>
+      <ul>
+        <li>Scenario-based practice</li>
+        <li>Self-evaluation checklists</li>
+        <li>Facilitator observation</li>
+        <li>Informal stakeholder feedback</li>
+      </ul>
+
+      <h4>Results / Impact</h4>
+      <ul>
+        <li>Increased interview confidence</li>
+        <li>More structured responses</li>
+        <li>Reduced anxiety in mock interviews</li>
+        <li>Recognition that communication, not competence, was the barrier</li>
+      </ul>
+
+      <h4>Key Takeaway</h4>
+      <p>Clear and structured preparation can alleviate interview anxiety and help candidates perform at their best.</p>
+
+      <h4>Preview of the Solution</h4>
+      <div class="preview">
+        <iframe src="https://rise.articulate.com/share/preview-link" width="100%" height="500px"></iframe> <!-- Place your actual Rise 360 preview link here -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Larisa Forbs ·
+    <a href="pages/resume.html">Resume</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
