@@ -610,30 +610,26 @@ section::before {
   position: relative;
   font-size: 36px;
   font-weight: 700;
-  opacity: 0; /* Скрыто до начала анимации */
+  opacity: 1;  /* Убираем скрытие текста */
 }
 
 .magnetic-text span {
   display: inline-block;
-  opacity: 0; /* Каждая буква начинается как невидимая */
+  opacity: 0; /* Каждая буква будет невидимой изначально */
   position: absolute;
   left: 0;
   top: 0;
-  animation: magneticAnimation 3s ease-out forwards, leakAnimation 1.5s ease-in forwards 3s; /* Применяем анимацию */
+  animation: magneticAnimation 3s ease-out forwards, leakAnimation 1.5s ease-in forwards 3s; /* Даем анимацию */
 }
 
 @keyframes magneticAnimation {
   0% {
     opacity: 0;
-    transform: translateX(-50px) translateY(-50px); /* Начало за пределами */
+    transform: translateX(-50px) translateY(-50px); /* Начальные позиции */
   }
   30% {
     opacity: 1;
-    transform: translateX(0) translateY(0); /* Буквы приходят в центр */
-  }
-  80% {
-    opacity: 1;
-    transform: translateX(0) translateY(0); /* Буквы остаются на месте */
+    transform: translateX(0) translateY(0); /* Буквы двигаются к своему месту */
   }
   100% {
     opacity: 1;
