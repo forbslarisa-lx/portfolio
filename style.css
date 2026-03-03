@@ -610,24 +610,22 @@ section::before {
   position: relative;
   font-size: 36px;
   font-weight: 700;
+  opacity: 0; /* Текст изначально скрыт */
 }
 
-/* Разбиение текста на буквы */
 .magnetic-text span {
   display: inline-block;
-  opacity: 0; /* Начинаем с невидимости */
+  opacity: 0; /* Каждая буква будет невидимой вначале */
   position: absolute;
   left: 0;
   top: 0;
-  animation: magneticAndLeaking 3s ease-out forwards; /* Анимация для текста */
-  animation-delay: 0.2s; /* Задержка для эффектов */
+  animation: magneticAnimation 3s ease-out forwards, leakAnimation 1.5s ease-in forwards 3s; /* Применяем две анимации */
 }
 
-/* Анимация притягивания текста и последующего разлета */
-@keyframes magneticAndLeaking {
+@keyframes magneticAnimation {
   0% {
     opacity: 0;
-    transform: translateX(-50px) translateY(-50px); /* Начинаем с отдалённых позиций */
+    transform: translateX(-50px) translateY(-50px); /* Начальные позиции букв за пределами */
   }
   30% {
     opacity: 1;
@@ -635,21 +633,21 @@ section::before {
   }
   80% {
     opacity: 1;
-    transform: translateX(0) translateY(0); /* Буквы остаются в центре */
+    transform: translateX(0) translateY(0); /* Буквы остаются на месте */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0); /* Буквы остаются на месте */
+  }
+}
+
+@keyframes leakAnimation {
+  0% {
+    opacity: 1;
+    transform: translateX(0) translateY(0); /* Начинаем с нормального состояния */
   }
   100% {
     opacity: 0;
-    transform: translateX(100px) translateY(100px) rotate(180deg); /* Буквы начинают разлетаться */
+    transform: translateX(50px) translateY(50px) rotate(180deg); /* Буквы разлетаются */
   }
 }
-
-/* Для параграфа добавим стили для анимации */
-.magnetic-text p {
-  font-size: 18px;
-  line-height: 1.6;
-  font-weight: 400;
-  opacity: 0;
-  animation: magneticAndLeaking 3s ease-out forwards; /* Тот же эффект для параграфа */
-  animation-delay: 0.4s;
-}
-
