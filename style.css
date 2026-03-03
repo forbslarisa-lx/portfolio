@@ -611,47 +611,46 @@ section::before {
   font-size: 36px;
   font-weight: 700;
   white-space: nowrap;
+  display: flex; /* Используем Flexbox для текста */
+  flex-wrap: wrap; /* Это обеспечит перенос текста, если он выходит за пределы */
+  justify-content: center; /* Центрируем содержимое */
+  align-items: center; /* Вертикальное выравнивание */
 }
 
 .magnetic-text span {
   display: inline-block;
-  opacity: 0; /* Initially invisible */
+  opacity: 0; /* Сначала невидимы */
   position: relative;
-  transform: translate(0, 0); /* Initial position */
-  animation: magneticAnimation 3s ease-out forwards; /* Animation timing */
-  animation-delay: calc(var(--i) * 0.05s); /* Staggered animation */
+  animation: magneticAnimation 3s ease-out forwards, leakAnimation 1s ease-out forwards 3s; /* Две анимации */
+  animation-delay: calc(var(--i) * 0.05s); /* Каждой букве свой срок задержки */
 }
 
 @keyframes magneticAnimation {
   0% {
     opacity: 0;
-    transform: translate(-50px, -50px); /* Start from outside the screen */
+    transform: translateX(-50px) translateY(-50px); /* Стартуем за пределами */
   }
   30% {
     opacity: 1;
-    transform: translate(0, 0); /* Bring the letter to its final position */
-  }
-  80% {
-    opacity: 1;
-    transform: translate(0, 0); /* Maintain its final position */
+    transform: translateX(0) translateY(0); /* Буквы собираются на месте */
   }
   100% {
     opacity: 1;
-    transform: translate(0, 0); /* Final position */
+    transform: translateX(0) translateY(0); /* Остаточное положение */
   }
 }
 
 .magnetic-text.active span {
-  animation: leakAnimation 1.5s ease-out forwards; /* After fully visible, start leaking animation */
+  animation: leakAnimation 1.5s ease-out forwards; /* Разлетаемся, когда класс active */
 } 
 
 @keyframes leakAnimation {
   0% {
     opacity: 1;
-    transform: translate(0, 0); /* Initial state */
+    transform: translateX(0) translateY(0); /* Начальное положение */
   }
   100% {
     opacity: 0;
-    transform: translate(50px, 50px) rotate(180deg); /* Letters start to fly out */
+    transform: translateX(50px) translateY(50px) rotate(180deg); /* Разлет букв */
   }
 }
