@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Growth Mindset for Performance and Leadership | Larisa Forbs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+        <strong>Larisa Forbs</strong>
+    <span>Learning Architect</span>
+    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="pages/strategy.html">Strategy</a>
+      <a href="pages/digital.html">Digital</a>
+      <a href="pages/signature.html">Signature</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <h1>Growth Mindset for Performance and Leadership</h1>
+    <p>Performance-oriented Growth Mindset course for professionals and people managers.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="h2">
+      <span class="rule"></span>
+      CASE 1
+    </div>
+
+    <div class="case-details">
+      <h3>Project Title: Growth Mindset for Performance and Leadership</h3>
+      <p><strong>Organization / Industry:</strong> Corporate Client • Finance / Tech Solutions</p>
+      <p><strong>Date:</strong> 4 weeks • Needs Analysis → Design → Development → Pilot Delivery</p>
+      <p><strong>Solution Artifacts (isEazy):</strong> Growth Mindset eCourse</p>
+
+      <h4>Solution Overview</h4>
+      <p>Designed a performance-oriented Growth Mindset program reframing mindset as a business capability. The course emphasized observable workplace behaviors over theory, integrating realistic dialogue, coaching scripts, and actionable decision-making tools.</p>
+
+      <h4>Problem Statement</h4>
+      <p>Mid-level professionals and people managers demonstrated strong technical expertise but struggled with failure tolerance, feedback defensiveness, learning from mistakes, and blame-oriented post-mortems. These behaviors reduced collaboration, adaptability, and psychological safety. The business required a behavior-shifting solution, not awareness-level training.</p>
+
+      <h4>My Role</h4>
+      <p>Lead Instructional Designer & Learning Architect</p>
+
+      <h4>Target Audience</h4>
+      <p>Mid-level professionals and people managers • Client-facing, high-pressure roles • Limited formal leadership training</p>
+
+      <h4>Stakeholder & SME Alignment</h4>
+      <ul>
+        <li>Collaborated with L&D leaders and people managers as domain SMEs to align behavioral concepts with existing performance and evaluation frameworks</li>
+        <li>Validated scenarios and language to ensure credibility for experienced professional learners</li>
+        <li>Balanced learner resistance, leadership expectations, and instructional clarity through iterative feedback cycles</li>
+      </ul>
+
+      <h4>Key Constraints & Challenges</h4>
+      <ul>
+        <li>Skepticism toward mindset-based learning</li>
+        <li>Resistance to discussing failure</li>
+        <li>Limited training time</li>
+        <li>High credibility threshold for experienced professionals</li>
+      </ul>
+
+      <h4>Learning Outcomes</h4>
+      <ul>
+        <li>Growth Mindset: Develop openness around mistakes, reframe feedback as constructive.</li>
+        <li>Performance-Oriented Feedback: Deliver actionable feedback and debrief effectively.</li>
+      </ul>
+
+      <h4>Instructional Design Strategies</h4>
+      <ul>
+        <li>Performance-Based Design: Focus on feedback behavior, response to failure, and team debrief practices.</li>
+        <li>Scenario-Based Learning: Realistic client-loss dialogue to surface implicit beliefs without moralizing.</li>
+        <li>Behavior Modeling: Professional, non-preachy language to maintain credibility.</li>
+        <li>Choice Architecture: Decision-based reflection exercises for transfer to practice.</li>
+        <li>Cognitive Load Control: Short, goal-driven content blocks with immediate relevance.</li>
+      </ul>
+
+      <h4>Assessment & Evaluation</h4>
+      <ul>
+        <li>Pre/post self-assessment</li>
+        <li>Scenario-based final evaluation</li>
+        <li>Facilitator observation</li>
+        <li>Qualitative participant feedback</li>
+      </ul>
+
+      <h4>Results / Impact</h4>
+      <ul>
+        <li>Increased openness around mistakes</li>
+        <li>Improved quality of debrief conversations</li>
+        <li>More constructive feedback reported by managers</li>
+        <li>Higher engagement than prior soft-skills programs</li>
+      </ul>
+
+      <h4>Key Takeaway</h4>
+      <p>Demonstrates ability to translate behavioral science into credible, performance-aligned learning for experienced professionals.</p>
+
+      <h4>Preview of the Solution</h4>
+      <div class="preview">
+        <iframe src="https://rise.articulate.com/share/preview-link" width="100%" height="500px"></iframe> <!-- Place your actual Rise 360 preview link here -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Larisa Forbs ·
+    <a href="pages/resume.html">Resume</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
