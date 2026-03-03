@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VividWorld Apparel Onboarding Program | Larisa Forbs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+        <strong>Larisa Forbs</strong>
+    <span>Learning Architect</span>
+    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="pages/strategy.html">Strategy</a>
+      <a href="pages/digital.html">Digital</a>
+      <a href="pages/signature.html">Signature</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <h1>VividWorld Apparel Onboarding Program</h1>
+    <p>A learner-centered experience that accelerates new hire readiness.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="h2">
+      <span class="rule"></span>
+      CASE 4
+    </div>
+
+    <div class="case-details">
+      <h3>Project Title: VividWorld Apparel Onboarding Program</h3>
+      <p><strong>Organization / Industry:</strong> Independent Educational Initiative • Public Online Education</p>
+      <p><strong>Instructional Designer:</strong> Larisa Forbs</p>
+      <p><strong>Delivery Platform:</strong> Articulate Rise 360</p>
+      <p><strong>Audience:</strong> New Customer Experience Specialists</p>
+      <h4>1. Project Purpose</h4>
+      <p>The purpose of this project is to design a learner-centered onboarding experience that accelerates new hire readiness during the first 30 days while supporting confidence, role clarity, and consistent customer experience behaviors. The program adopts a two-way onboarding model in which learners actively interpret expectations, connect personal strengths to the role, and practice decision-making in realistic workplace situations.</p>
+
+      <h4>2. Instructional Philosophy: Two-Way Onboarding</h4>
+      <p>This program treats onboarding as a mutual adaptation process between employee and organization rather than a one-directional information transfer.</p>
+      <ul>
+        <li>Learner identity integration with organizational values</li>
+        <li>Psychological safety and normalization of early uncertainty</li>
+        <li>Reflection and self-assessment</li>
+        <li>Practice through realistic scenarios</li>
+        <li>Early confidence building</li>
+        <li>Clear visibility of support systems and growth pathways</li>
+      </ul>
+
+      <h4>3. Business Goals</h4>
+      <ul>
+        <li>Faster time-to-productivity</li>
+        <li>Consistent customer experience delivery</li>
+        <li>Improved communication and teamwork</li>
+        <li>Reduced early-stage uncertainty</li>
+        <li>Increased engagement and retention potential</li>
+        <li>Improved adherence to operational standards</li>
+      </ul>
+
+      <h4>4. Learning Goals</h4>
+      <ul>
+        <li>Describe the organization’s mission and values.</li>
+        <li>Explain the Customer Experience Specialist role and its impact.</li>
+        <li>Apply customer interaction strategies using the IMPACT framework.</li>
+        <li>Demonstrate understanding of workplace expectations and safety.</li>
+        <li>Identify support resources and growth opportunities.</li>
+        <li>Navigate the first 30 days with confidence.</li>
+      </ul>
+
+      <h4>5. Instructional Framework</h4>
+      <p>The course architecture follows a progressive onboarding pathway: Context → Identity → Role → Practice → Application → Growth → Independence</p>
+
+      <h4>6. IMPACT Customer Experience Framework</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>I — Initial Welcome</td>
+            <td>Creating a positive first impression and establishing connection.</td>
+          </tr>
+          <tr>
+            <td>M — Merchandise and Presentation</td>
+            <td>Maintaining organized, appealing displays and brand consistency.</td>
+          </tr>
+          <tr>
+            <td>P — Product Availability</td>
+            <td>Ensuring customers can locate desired products efficiently.</td>
+          </tr>
+          <tr>
+            <td>A — Assistance</td>
+            <td>Providing proactive guidance and personalized support.</td>
+          </tr>
+          <tr>
+            <td>C — Checkout Experience</td>
+            <td>Creating a smooth and positive purchase completion.</td>
+          </tr>
+          <tr>
+            <td>T — Teamwork</td>
+            <td>Coordinating effectively with colleagues to support customer outcomes.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>7. Course Structure Overview</h4>
+      <ul>
+        <li>Section 1 — Welcome to VividWorld Apparel</li>
+        <li>Section 2 — What We Do and Why It Matters</li>
+        <li>Section 3 — Our Family</li>
+        <li>Section 4 — How We Work</li>
+        <li>Section 5 — Growth, Rewards, and Community</li>
+        <li>Section 6 — Your First 30 Days</li>
+        <li>Section 7 — Tools, Resources, and Support</li>
+      </ul>
+
+      <h4>8. Interaction Strategy</h4>
+      <p>Interaction design emphasizes active learning through scenarios, knowledge checks, reflection prompts, and applied decision-making. Frequent micro-interactions reduce cognitive load and support retention.</p>
+
+      <h4>9. Learning Theory Foundations</h4>
+      <ul>
+        <li>Adult Learning Theory (Andragogy): Learners connect prior experience to new knowledge and focus on practical application.</li>
+        <li>Experiential Learning (Kolb): Scenarios provide concrete experiences followed by reflection and conceptual understanding.</li>
+        <li>Social Learning Theory (Bandura): Modeling of behaviors through examples and feedback supports skill acquisition.</li>
+        <li>Cognitive Load Theory: Information is chunked into manageable segments with progressive complexity.</li>
+        <li>Self-Efficacy Theory: Confidence-building interactions increase learner belief in their ability to succeed.</li>
+      </ul>
+
+      <h4>10. SME Collaboration</h4>
+      <p>Subject Matter Experts support validation of operational accuracy, scenario realism, behavioral expectations, and assessment correctness. Iterative review cycles occur during storyboard development prior to course build.</p>
+
+      <h4>11. Expected Outcomes</h4>
+      <p>The program is intended to increase learner confidence, improve consistency of customer experience behaviors, strengthen readiness during the first month, and reduce early-stage uncertainty.</p>
+
+      <h4>Preview of the Solution</h4>
+      <div class="preview">
+        <iframe src="https://rise.articulate.com/share/preview-link" width="100%" height="500px"></iframe> <!-- Replace with actual preview link -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Larisa Forbs ·
+    <a href="pages/resume.html">Resume</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
