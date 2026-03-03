@@ -359,11 +359,25 @@ section::before {
   position: relative;
 }
 
-/* Прокачанный hover для кликабельной карточки */
+/* Для кликабельной карточки — более яркое изменение фона и глоу */
 .card.clickable:hover {
-  background-color: rgba(0, 161, 184, 0.3); /* Более яркий синий тинт */
-  box-shadow: 0 0 20px rgba(0, 161, 184, 0.7); /* Яркое свечение */
-  transform: scale(1.04); /* Увеличение при ховере */
+  background-color: #00a1b8; /* Яркий цвет фона для кликабельной карточки */
+  background-color: rgba(0, 161, 184, 0.3); /* Легкий синий тинт */
+  box-shadow: 0 0 15px rgba(0, 161, 184, 1); /* Яркое свечение */
+  transform: scale(1.05); /* Легкое увеличение при ховере */
+}
+
+/* Псевдо-элемент для кликабельных карточек */
+.card.clickable::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  background: rgba(0, 161, 184, 0.1); /* Легкий синий эффект на карточке */
+  z-index: -1; /* Чтобы не перекрывать контент */
 }
 
 /* Стиль для псевдо-элемента в карточке */
@@ -403,6 +417,7 @@ section::before {
 .card.third {
   grid-column: span 4;
 }
+
 /* ---------- Pills ---------- */
 
 .meta{
