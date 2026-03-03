@@ -194,7 +194,7 @@
   </div>
 </section>
 
-  <script>
+ <script>
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.magnetic-text').forEach(function (element) {
     let text = element.innerText.split('');
@@ -206,12 +206,13 @@ document.addEventListener('DOMContentLoaded', function () {
       element.appendChild(span);
     });
 
-    let elementTop = element.getBoundingClientRect().top;
-    let triggerPoint = window.innerHeight / 1.5; // Триггерная точка, когда 2/3 элемента видны
-
+    // Перемещение в функцию scroll
     window.addEventListener('scroll', function () {
+      let elementTop = element.getBoundingClientRect().top;
+      let triggerPoint = window.innerHeight / 1.5; // Триггерная точка, когда 2/3 элемента видны
+
       if (elementTop < triggerPoint) {
-        element.classList.add('active'); 
+        element.classList.add('active'); // Добавляем класс активный для запуска анимации
       }
     });
   });
