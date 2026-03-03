@@ -618,7 +618,7 @@ section::before {
   opacity: 0; /* Сначала невидимы */
   position: relative;
   animation: magneticAnimation 3s ease-out forwards, leakAnimation 1s ease-out forwards 3s; /* Две анимации */
-  animation-delay: calc(0.1s * var(--i)); /* Каждой букве свой срок задержки */
+  animation-delay: calc(var(--i) * 0.05s); /* Каждой букве свой срок задержки */
 }
 
 @keyframes magneticAnimation {
