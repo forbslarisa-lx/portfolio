@@ -390,9 +390,9 @@ section::before {
 .card.third{ grid-column:span 4; }
 
 .card.clickable:hover {
-  background-color: rgba(0, 161, 184, 0.1); /* Легкий синий тинт, подходящий под сайт */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Увеличенная тень */
-  transform: scale(1.07); /* Увеличение при ховере */
+ background-color: rgba(0, 161, 184, 0.3); /* Более выраженный синий тинт */
+  box-shadow: 0 0 15px rgba(0, 161, 184, 0.6); /* Глоу (свечение) с тем же оттенком */
+  transform: scale(1.04); /* Увеличение при ховере */
 }
 
 /* ---------- Pills ---------- */
