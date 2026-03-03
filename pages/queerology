@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Queerology | Larisa Forbs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+        <strong>Larisa Forbs</strong>
+    <span>Learning Architect</span>
+    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="pages/strategy.html">Strategy</a>
+      <a href="pages/digital.html">Digital</a>
+      <a href="pages/signature.html">Signature</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <h1>Queerology</h1>
+    <p>Bridging the gap between academically rigorous queer theory and accessible public education.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="h2">
+      <span class="rule"></span>
+      CASE 3
+    </div>
+
+    <div class="case-details">
+      <h3>Project Title: Queerology</h3>
+      <p><strong>Organization / Industry:</strong> Independent Educational Initiative • Public Online Education</p>
+      <p><strong>Date:</strong> 2023–2025</p>
+      <p><strong>Solution Artifacts:</strong> Queerology Instagram</p>
+      <ul>
+        <li>Webinar recordings</li>
+        <li>Presentation materials</li>
+        <li>Reading lists and session outlines</li>
+      </ul>
+
+      <h4>Solution Overview</h4>
+      <p>Designed a live webinar-based learning format supported by curated academic materials. Sessions combined structured instruction, moderated discussion, and guided meaning-making.</p>
+
+      <h4>Problem Statement</h4>
+      <p>A gap existed between academically rigorous queer theory and accessible public education. Available resources were either inaccessible or oversimplified, limiting informed discourse and critical understanding.</p>
+
+      <h4>My Role</h4>
+      <p>Instructional Designer • Content Curator • Facilitator • Academic Translator</p>
+
+      <h4>Target Audience</h4>
+      <p>Adult learners without formal academic background • Educators, activists, journalists • International audience</p>
+
+      <h4>Stakeholder & SME Alignment</h4>
+      <ul>
+        <li>Collaborated with faculty members and academic practitioners as primary subject matter experts</li>
+        <li>Co-developed course content with a colleague acting as SME, working as a small instructional design team rather than a solo designer</li>
+        <li>Navigated academic databases and peer-reviewed literature to identify, evaluate, and prioritize high-impact theoretical frameworks</li>
+        <li>Synthesized and distilled complex academic research into structured, teachable instructional narratives</li>
+        <li>Translated and adapted academic concepts into a target language in which no established academic resources currently exist, effectively creating a foundational reference base for future academic use</li>
+        <li>Balanced faculty expectations, theoretical rigor, learner accessibility, and psychological safety through iterative design and facilitation</li>
+        <li>Treated learners as key stakeholders, explicitly designing for access, equity, and cognitive load across diverse cultural and educational backgrounds</li>
+      </ul>
+
+      <h4>Key Constraints & Challenges</h4>
+      <ul>
+        <li>Translating theory without loss of meaning</li>
+        <li>Diverse cultural and knowledge baselines</li>
+        <li>Engagement with theory-heavy material</li>
+        <li>Psychological safety in sensitive discussions</li>
+      </ul>
+
+      <h4>Learning Outcomes</h4>
+      <ul>
+        <li>Academic grounding in gender studies, sociology, psychology</li>
+        <li>Scaffolded conceptual progression</li>
+        <li>Narrative-based instructional translation</li>
+        <li>Interactive reflection and Q&A</li>
+        <li>Explicit psychological safety framing</li>
+      </ul>
+
+      <h4>Assessment & Evaluation</h4>
+      <ul>
+        <li>Pre/post self-assessment</li>
+        <li>Scenario-based final evaluation</li>
+        <li>Facilitator observation</li>
+        <li>Qualitative participant feedback</li>
+      </ul>
+
+      <h4>Results / Impact</h4>
+      <ul>
+        <li>High live-session engagement</li>
+        <li>Strong qualitative feedback on clarity</li>
+        <li>Increased learner confidence discussing LGBTQ+ topics</li>
+        <li>Repeat attendance across sessions</li>
+      </ul>
+
+      <h4>Key Takeaway</h4>
+      <p>Demonstrates academic translation and facilitation of complex theory for non-academic audiences.</p>
+
+      <h4>Preview of the Solution</h4>
+      <div class="preview">
+        <iframe src="https://rise.articulate.com/share/preview-link" width="100%" height="500px"></iframe> <!-- Place your actual Rise 360 preview link here -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Larisa Forbs ·
+    <a href="pages/resume.html">Resume</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
