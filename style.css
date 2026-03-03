@@ -335,66 +335,74 @@ section::before {
   gap:18px;
 }
 
-.card{
-  grid-column:span 6;
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:20px;
-  transition:all .2s ease;
-  text-decoration:none;
-  color:inherit;
+/* Основной стиль для карточек */
+.card {
+  grid-column: span 6;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
 }
 
-.card:hover{
-   grid-column:span 6;
-  background:linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
-  border:1px solid rgba(31,31,31,.08);
-  border-radius:18px;
-  padding:22px;
-  box-shadow:
-    0 10px 30px rgba(15,76,92,.08),
-    0 1px 0 rgba(0,0,0,.03);
-  transition:transform .1s ease, box-shadow .1s ease, border-color .1s ease;
-  position:relative;
-}
-.card::before{
-  content:"";
-  position:absolute;
-  left:16px;
-  right:16px;
-  top:0;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, var(--turquoise), var(--muted-aqua));
-  opacity:.65;
-}
-.card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(28,167,166,.55);
-  box-shadow:
-    0 18px 50px rgba(15,76,92,.14),
-    0 1px 0 rgba(0,0,0,.03);
-}
-.card h3{
-  margin:0 0 8px;
-  font-size:18px;
+/* Hover для карточки */
+.card:hover {
+  grid-column: span 6;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+  border: 1px solid rgba(31, 31, 31, 0.08);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(15, 76, 92, 0.08), 0 1px 0 rgba(0, 0, 0, 0.03);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+  position: relative;
 }
 
-.card p{
-  margin:0;
-  color:#3a3f45;
-}
-
-.card.full{ grid-column:span 12; }
-.card.third{ grid-column:span 4; }
-
+/* Прокачанный hover для кликабельной карточки */
 .card.clickable:hover {
- background-color: rgba(0, 161, 184, 0.3); /* Более выраженный синий тинт */
-  box-shadow: 0 0 15px rgba(0, 161, 184, 0.6); /* Глоу (свечение) с тем же оттенком */
+  background-color: rgba(0, 161, 184, 0.3); /* Более яркий синий тинт */
+  box-shadow: 0 0 20px rgba(0, 161, 184, 0.7); /* Яркое свечение */
   transform: scale(1.04); /* Увеличение при ховере */
 }
 
+/* Стиль для псевдо-элемента в карточке */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--turquoise), var(--muted-aqua));
+  opacity: 0.65;
+}
+
+/* Hover для карточки, не кликабельной */
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(28, 167, 166, 0.55);
+  box-shadow: 0 18px 50px rgba(15, 76, 92, 0.14), 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.card p {
+  margin: 0;
+  color: #3a3f45;
+}
+
+/* Стили для различных размеров карточек */
+.card.full {
+  grid-column: span 12;
+}
+.card.third {
+  grid-column: span 4;
+}
 /* ---------- Pills ---------- */
 
 .meta{
