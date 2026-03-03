@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Larisa Forbs | L&D + Instructional Design</title>
   <link rel="stylesheet" href="style.css" />
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('.magnetic-text').forEach(function (element) {
+        let text = element.innerText.split('');
+        element.innerHTML = ''; // Очищаем содержимое элемента
+        text.forEach(function (char) {
+          let span = document.createElement('span'); // Создаем элемент span для каждой буквы
+          span.innerText = char; // Присваиваем букву тексту
+          element.appendChild(span); // Вставляем букву в элемент
+        });
+      });
+    });
+  </script>
 </head>
 <body>
 
