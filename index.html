@@ -198,26 +198,26 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.magnetic-text').forEach(function (element) {
     let text = element.innerText.split('');
-    element.innerHTML = ''; // Очищаем содержимое
+    element.innerHTML = ''; // Clear current content
     text.forEach(function (char, index) {
       let span = document.createElement('span');
       span.innerText = char;
-      span.style.setProperty('--i', index); // Создаем свойство для задержки
+      span.style.setProperty('--i', index); // Add delay for each character
       element.appendChild(span);
     });
 
-    // Перемещение в функцию scroll
-    window.addEventListener('scroll', function () {
-      let elementTop = element.getBoundingClientRect().top;
-      let triggerPoint = window.innerHeight / 1.5; // Триггерная точка, когда 2/3 элемента видны
+    let elementTop = element.getBoundingClientRect().top;
+    let triggerPoint = window.innerHeight / 1.5; // When 2/3 of element is visible
 
+    // Scroll event to add the 'active' class when the text is revealed
+    window.addEventListener('scroll', function () {
       if (elementTop < triggerPoint) {
-        element.classList.add('active'); // Добавляем класс активный для запуска анимации
+        element.classList.add('active'); // Start animation once the element comes into view
       }
     });
   });
 });
-</script>
+ </script>
   
 <footer class="footer">
   <div class="container">
