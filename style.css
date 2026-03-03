@@ -635,6 +635,9 @@ section::before {
     transform: translateX(0) translateY(0); /* Остаточное положение */
   }
 }
+.magnetic-text.active span {
+  animation: leakAnimation 1.5s ease-out forwards; /* Разлетаемся, когда класс active */
+} 
 
 @keyframes leakAnimation {
   0% {
