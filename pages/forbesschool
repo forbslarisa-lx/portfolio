@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Forbes School | Larisa Forbs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+        <strong>Larisa Forbs</strong>
+    <span>Learning Architect</span>
+    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="pages/strategy.html">Strategy</a>
+      <a href="pages/digital.html">Digital</a>
+      <a href="pages/signature.html">Signature</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <h1>Forbes School</h1>
+    <p>Designing a scalable instructional system for underserved learners.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="h2">
+      <span class="rule"></span>
+      CASE 4
+    </div>
+
+    <div class="case-details">
+      <h3>Project Title: Forbes School</h3>
+      <p><strong>Organization / Industry:</strong> Independent Education Initiative • Language Education for Underserved Learners</p>
+      <p><strong>Date:</strong> 2011–2021</p>
+
+      <h4>1. Problem Statement</h4>
+      <p>Traditional language programs fail underserved learners due to poor placement, rigid curricula, lack of differentiation, and weak progress tracking. A scalable, needs-driven instructional system was required.</p>
+
+      <h4>2. My Role</h4>
+      <p><strong>End-to-End Instructional Designer</strong> • Curriculum Architect • Assessment Designer • LMS Implementation Lead</p>
+
+      <h4>3. Target Audience</h4>
+      <p>Children • Adults • Seniors • Immigrants • Low-income learners</p>
+
+      <h4>4. Stakeholder & SME Alignment</h4>
+      <ul>
+        <li>Worked with educators as instructional SMEs to align curriculum pacing, assessment, and learner readiness.</li>
+        <li>Incorporated learner feedback as a primary stakeholder input into instructional iteration.</li>
+        <li>Balanced instructional quality with operational and resource constraints.</li>
+      </ul>
+
+      <h4>5. Key Constraints & Challenges</h4>
+      <ul>
+        <li>Multi-age cohorts</li>
+        <li>Diverse goals and pacing needs</li>
+        <li>Limited learner availability</li>
+        <li>Cultural and linguistic diversity</li>
+        <li>Resource constraints</li>
+      </ul>
+
+      <h4>6. Solution Overview</h4>
+      <p>Designed a full instructional system including diagnostics, learner profiling, modular curricula, age-sensitive grouping, and LMS-based assessment and tracking. International standards were adapted to context and learner goals.</p>
+
+      <h4>7. Instructional Design Strategies</h4>
+      <ul>
+        <li>Needs-first diagnostic design</li>
+        <li>Modular curriculum architecture</li>
+        <li>Scaffolded progression across ages</li>
+        <li>Continuous formative assessment</li>
+        <li>LMS-enabled transparency and accountability</li>
+      </ul>
+
+      <h4>8. Results / Impact</h4>
+      <ul>
+        <li>Improved retention through accurate placement</li>
+        <li>Measurable learner progress</li>
+        <li>High learner and stakeholder satisfaction</li>
+        <li>Scalable system across cohorts</li>
+      </ul>
+
+      <h4>9. Key Takeaway</h4>
+      <p>Demonstrates systems-level instructional design integrating curriculum, assessment, and technology for diverse populations.</p>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Larisa Forbs ·
+    <a href="pages/resume.html">Resume</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
