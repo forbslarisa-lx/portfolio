@@ -355,7 +355,7 @@ section::before {
   box-shadow:
     0 10px 30px rgba(15,76,92,.08),
     0 1px 0 rgba(0,0,0,.03);
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  transition:transform .1s ease, box-shadow .1s ease, border-color .1s ease;
   position:relative;
 }
 .card::before{
@@ -389,11 +389,10 @@ section::before {
 .card.full{ grid-column:span 12; }
 .card.third{ grid-column:span 4; }
 
-/* Для кликабельной карточки — изменение фона, увеличение и тень при ховере */
 .card.clickable:hover {
-  background-color: #f0f0f0; /* Легкое изменение фона */
+  background-color: rgba(0, 161, 184, 0.1); /* Легкий синий тинт, подходящий под сайт */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Увеличенная тень */
-  transform: scale(1.05); /* Увеличение при ховере */
+  transform: scale(1.07); /* Увеличение при ховере */
 }
 
 /* ---------- Pills ---------- */
