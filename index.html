@@ -197,12 +197,13 @@
   <script>
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.magnetic-text').forEach(function (element) {
-    let text = element.innerText.split(''); 
-    element.innerHTML = ''; 
-    text.forEach(function (char) {
-      let span = document.createElement('span'); 
-      span.innerText = char; 
-      element.appendChild(span); 
+    let text = element.innerText.split('');
+    element.innerHTML = ''; // Очищаем содержимое
+    text.forEach(function (char, index) {
+      let span = document.createElement('span'); // Создаем span для каждой буквы
+      span.innerText = char; // Присваиваем букву
+      span.style.setProperty('--i', index); // Устанавливаем индекс для задержки анимации
+      element.appendChild(span); // Вставляем букву в элемент
     });
   });
 });
