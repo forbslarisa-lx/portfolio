@@ -200,10 +200,19 @@ document.addEventListener('DOMContentLoaded', function () {
     let text = element.innerText.split('');
     element.innerHTML = ''; // Очищаем содержимое
     text.forEach(function (char, index) {
-      let span = document.createElement('span'); // Создаем span для каждой буквы
-      span.innerText = char; // Присваиваем букву
-      span.style.setProperty('--i', index); // Устанавливаем индекс для задержки анимации
-      element.appendChild(span); // Вставляем букву в элемент
+      let span = document.createElement('span');
+      span.innerText = char;
+      span.style.setProperty('--i', index); // Создаем свойство для задержки
+      element.appendChild(span);
+    });
+
+    let elementTop = element.getBoundingClientRect().top;
+    let triggerPoint = window.innerHeight / 1.5; // Триггерная точка, когда 2/3 элемента видны
+
+    window.addEventListener('scroll', function () {
+      if (elementTop < triggerPoint) {
+        element.classList.add('active'); 
+      }
     });
   });
 });
