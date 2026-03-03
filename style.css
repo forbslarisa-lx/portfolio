@@ -615,36 +615,43 @@ section::before {
 
 .magnetic-text span {
   display: inline-block;
-  opacity: 0; /* Сначала невидимы */
+  opacity: 0; /* Initially invisible */
   position: relative;
-  animation: magneticAnimation 3s ease-out forwards, leakAnimation 1s ease-out forwards 3s; /* Две анимации */
-  animation-delay: calc(var(--i) * 0.05s); /* Каждой букве свой срок задержки */
+  transform: translate(0, 0); /* Initial position */
+  animation: magneticAnimation 3s ease-out forwards; /* Animation timing */
+  animation-delay: calc(var(--i) * 0.05s); /* Staggered animation */
 }
 
 @keyframes magneticAnimation {
   0% {
     opacity: 0;
-    transform: translateX(-50px) translateY(-50px); /* Стартуем за пределами */
+    transform: translate(-50px, -50px); /* Start from outside the screen */
   }
   30% {
     opacity: 1;
-    transform: translateX(0) translateY(0); /* Буквы собираются на месте */
+    transform: translate(0, 0); /* Bring the letter to its final position */
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 0); /* Maintain its final position */
   }
   100% {
     opacity: 1;
-    transform: translateX(0) translateY(0); /* Остаточное положение */
+    transform: translate(0, 0); /* Final position */
   }
 }
+
 .magnetic-text.active span {
-  animation: leakAnimation 1.5s ease-out forwards; /* Разлетаемся, когда класс active */
+  animation: leakAnimation 1.5s ease-out forwards; /* After fully visible, start leaking animation */
 } 
 
 @keyframes leakAnimation {
   0% {
     opacity: 1;
-    transform: translateX(0) translateY(0); /* Начальное положение */
+    transform: translate(0, 0); /* Initial state */
   }
   100% {
     opacity: 0;
-    transform: translateX(50px) translateY(50px) rotate(180deg); /* Разлет букв */
+    transform: translate(50px, 50px) rotate(180deg); /* Letters start to fly out */
   }
+}
