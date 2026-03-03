@@ -695,3 +695,125 @@ section::before {
 .preview iframe {
   border-radius: 8px;
 }
+
+/* ---------- Case Section Styles ---------- */
+.case-details {
+  background-color: var(--off-white);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(15,76,92,.12);
+  margin-bottom: 30px;
+}
+
+.case-details h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.case-details ul {
+  margin-left: 20px;
+}
+
+.case-details ul li {
+  margin-bottom: 10px;
+}
+
+.case-details h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.preview {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.preview iframe {
+  border-radius: 8px;
+}
+
+/* ---------- Case Section Styles ---------- */
+.case-details {
+  background-color: var(--off-white);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(15,76,92,.12);
+  margin-bottom: 30px;
+}
+
+.case-details h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.case-details ul {
+  margin-left: 20px;
+}
+
+.case-details ul li {
+  margin-bottom: 10px;
+}
+
+.case-details h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.preview {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.preview iframe {
+  border-radius: 8px;
+}
+/* ---------- Case Section Styles ---------- */
+.case-details {
+  background-color: var(--off-white);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(15,76,92,.12);
+  margin-bottom: 30px;
+}
+
+.case-details h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.case-details ul {
+  margin-left: 20px;
+}
+
+.case-details ul li {
+  margin-bottom: 10px;
+}
+
+.case-details h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.preview {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.preview iframe {
+  border-radius: 8px;
+}
