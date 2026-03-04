@@ -300,8 +300,7 @@ a:hover{ color:inherit; }
    grid-column: span 12;
   max-width:100%;
   color:#3a3f45;
-    margin: 0 0 28px; 
-  text-align: justify; 
+    margin: 0 0 28px;
 }
 section {
   position:relative;
