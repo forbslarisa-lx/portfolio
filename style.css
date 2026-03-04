@@ -297,10 +297,13 @@ a:hover{ color:inherit; }
 }
 
 .lede{
-   grid-column: span 12;
+   grid-column: span 6;
   max-width:820px;
   color:#3a3f45;
-  margin:0 auto;
+    margin: 0 auto;    /* Центрирует блок по горизонтали */
+  padding-left: 20px;  /* Немного отступов слева */
+  padding-right: 20px; /* Немного отступов справа */
+  text-align: justify; 
 }
 section {
   position:relative;
