@@ -40,8 +40,6 @@
     </div>
   </a>
 
-
-<!-- Попап -->
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="popup-close" onclick="closePopup()">&times;</span>
@@ -90,23 +88,7 @@
   </div>
 </section>
 
-  // Функция для открытия попапа
-function openPopup() {
-  document.getElementById('popup').style.display = 'block';
-}
 
-// Функция для закрытия попапа
-function closePopup() {
-  document.getElementById('popup').style.display = 'none';
-}
-
-// Закрытие попапа при клике за его пределами
-window.onclick = function(event) {
-  if (event.target == document.getElementById('popup')) {
-    closePopup();
-  }
-};
-  
 <footer class="footer">
   <div class="container">Back to <a href="../index.html">Home</a></div>
 </footer>
