@@ -88,22 +88,21 @@
         <div class="card-cta">Open Understanding Xenophobia case ↗</div>
       </a>
       
-  <a class="card clickable" href="javascript:void(0)" onclick="openPopup()">
-    <h3>Deployment flow</h3>
-    <p>Package + version → LMS upload → QA → release notes → analytics review.</p>
-    <div class="meta">
-      <span class="pill aqua">SCORM</span>
-      <span class="pill ">LMS</span>
-      <span class="pill"aqua>QA</span>
-    </div>
+<a class="card clickable" href="javascript:void(0)" onclick="openPopup()">
+  <h3>Deployment flow</h3>
+  <p>Package + version → LMS upload → QA → release notes → analytics review.</p>
+  <div class="meta">
+    <span class="pill aqua">SCORM</span>
+    <span class="pill">LMS</span>
+    <span class="pill aqua">QA</span>
+  </div>
   <div class="card-cta">Open LMS Deployment pop-up ↗</div>
-  </a>
+</a>
+
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="popup-close" onclick="closePopup()">×</span>
-    <iframe
-      src="https://forbslarisa-lx.github.io/GitHup-Repo/lms-deployment-learner-experience-demo-scorm12-zXGm6Isp/scormcontent/index.html">
-    </iframe>
+    <iframe src="https://forbslarisa-lx.github.io/GitHup-Repo/lms-deployment-learner-experience-demo-scorm12-zXGm6Isp/scormcontent/index.html"></iframe>
   </div>
 </div>
       
@@ -125,11 +124,11 @@
 
 <script>
 function openPopup(){
-  document.getElementById("popup").style.display = "flex";
+  document.getElementById("popup").classList.add("show");
 }
 
 function closePopup(){
-  document.getElementById("popup").style.display = "none";
+  document.getElementById("popup").classList.remove("show");
 }
 </script>  
 
