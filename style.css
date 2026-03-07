@@ -877,38 +877,59 @@ section::before {
   border-radius: 8px;
 }
 
-/* Стили для попапа */
-.popup {
-  display: none; /* Скрыто по умолчанию */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
-  z-index: 9999; /* Устанавливаем попап на передний план */
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(4px);
+  z-index:9999;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:40px;
 }
 
-.popup-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 800px;
-  position: relative;
+/* окно */
+.popup-content{
+  position:relative;
+  width:min(1100px,90vw);
+  height:min(720px,85vh);
+
+  background:#fff;
+  border-radius:16px;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 40px 90px rgba(0,0,0,.35),
+    0 10px 30px rgba(0,0,0,.2);
 }
 
-.popup-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  color: #aaa;
-  cursor: pointer;
+/* iframe курса */
+.popup-content iframe{
+  width:100%;
+  height:100%;
+  border:0;
 }
 
-.popup-close:hover {
-  color: #000;
+/* кнопка закрытия */
+.popup-close{
+  position:absolute;
+  top:12px;
+  right:16px;
+
+  font-size:28px;
+  line-height:1;
+
+  color:#666;
+  cursor:pointer;
+
+  z-index:5;
 }
 
+.popup-close:hover{
+  color:#000;
+}
