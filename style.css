@@ -421,6 +421,33 @@ section::before {
   grid-column: span 4;
 }
 
+.card.clickable{
+  position: relative;
+}
+
+.card-cta{
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: #0f4c5c;
+  background: rgba(28,167,166,.12);
+  border: 1px solid rgba(28,167,166,.28);
+  transition: all .2s ease;
+}
+
+.card.clickable:hover .card-cta{
+  background: rgba(28,167,166,.18);
+  border-color: rgba(28,167,166,.45);
+  transform: translateX(3px);
+}
+
+
 /* ---------- Pills ---------- */
 
 .meta{
