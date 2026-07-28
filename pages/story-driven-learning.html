@@ -1,0 +1,2836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Story-driven performance support case study by Larisa Forbs. An animated learning experience designed to improve enrollment conversations and learner-program matching."
+  >
+
+  <title>
+    Story-Driven Performance Support | Larisa Forbs
+  </title>
+
+  <style>
+    /* =========================================================
+       1. DESIGN TOKENS
+    ========================================================= */
+
+    :root {
+      --teal-950: #073f43;
+      --teal-900: #084f54;
+      --teal-800: #0b6268;
+      --teal-700: #11777c;
+      --teal-500: #2aa6a5;
+      --teal-200: #bfe6e2;
+      --teal-100: #e5f4f1;
+
+      --gold-500: #d8aa53;
+      --gold-300: #ead19a;
+      --gold-100: #f7edcf;
+
+      --ink-950: #17262a;
+      --ink-800: #263b40;
+      --ink-600: #52676c;
+      --ink-500: #6b7c80;
+
+      --cream-50: #fffdf8;
+      --cream-100: #faf6ed;
+      --cream-200: #f2eadb;
+
+      --white: #ffffff;
+
+      --line: rgba(14, 91, 95, 0.14);
+      --line-strong: rgba(14, 91, 95, 0.24);
+
+      --shadow-sm:
+        0 12px 30px rgba(8, 67, 71, 0.08);
+
+      --shadow-md:
+        0 22px 55px rgba(8, 67, 71, 0.12);
+
+      --shadow-lg:
+        0 35px 90px rgba(6, 45, 48, 0.18);
+
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 32px;
+      --radius-xl: 44px;
+
+      --content-width: 1180px;
+      --text-width: 760px;
+
+      --transition:
+        220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+
+    /* =========================================================
+       2. RESET AND GLOBAL STYLES
+    ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(
+          circle at 12% 18%,
+          rgba(42, 166, 165, 0.08),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 86% 74%,
+          rgba(216, 170, 83, 0.09),
+          transparent 28%
+        ),
+        var(--cream-50);
+
+      color: var(--ink-950);
+      font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    ::selection {
+      background: var(--teal-200);
+      color: var(--teal-950);
+    }
+
+
+    /* =========================================================
+       3. ACCESSIBILITY
+    ========================================================= */
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 9999;
+
+      padding: 12px 16px;
+      border-radius: 999px;
+
+      background: var(--white);
+      color: var(--teal-950);
+      font-weight: 700;
+      text-decoration: none;
+
+      transform: translateY(-160%);
+      transition: transform var(--transition);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold-500);
+      outline-offset: 4px;
+    }
+
+
+    /* =========================================================
+       4. SHARED LAYOUT
+    ========================================================= */
+
+    .container {
+      width: min(
+        calc(100% - 40px),
+        var(--content-width)
+      );
+
+      margin: 0 auto;
+    }
+
+    .narrow {
+      width: min(
+        100%,
+        var(--text-width)
+      );
+
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 110px 0;
+    }
+
+    .section-small {
+      padding: 78px 0;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+
+      margin: 0 0 20px;
+
+      color: var(--teal-700);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      width: 34px;
+      height: 1px;
+
+      background: var(--gold-500);
+      content: "";
+    }
+
+    .section-heading {
+      max-width: 860px;
+      margin: 0;
+
+      color: var(--teal-950);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      line-height: 1.03;
+    }
+
+    .section-intro {
+      max-width: 740px;
+      margin: 26px 0 0;
+
+      color: var(--ink-600);
+      font-size: clamp(1.03rem, 1.7vw, 1.22rem);
+      line-height: 1.75;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--teal-800);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .text-link::after {
+      content: "↗";
+      transition: transform var(--transition);
+    }
+
+    .text-link:hover::after {
+      transform: translate(3px, -3px);
+    }
+
+
+    /* =========================================================
+       5. NAVIGATION
+    ========================================================= */
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1000;
+
+      padding: 16px 0;
+      transition:
+        padding var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .site-header.scrolled {
+      padding: 9px 0;
+
+      background: rgba(255, 253, 248, 0.84);
+      box-shadow:
+        0 10px 35px rgba(7, 63, 67, 0.08);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      min-height: 60px;
+      padding: 10px 14px 10px 20px;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.09);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      transition:
+        background var(--transition),
+        border-color var(--transition);
+    }
+
+    .site-header.scrolled .nav-shell {
+      border-color: rgba(14, 91, 95, 0.1);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .brand {
+      color: var(--white);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 1.04rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+
+      transition: color var(--transition);
+    }
+
+    .site-header.scrolled .brand {
+      color: var(--teal-950);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 10px 14px;
+      border-radius: 999px;
+
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+
+      transition:
+        color var(--transition),
+        background var(--transition),
+        transform var(--transition);
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .site-header.scrolled .nav-links a {
+      color: var(--ink-800);
+    }
+
+    .site-header.scrolled .nav-links a:hover {
+      background: var(--teal-100);
+      color: var(--teal-950);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 999px;
+
+      background: var(--white);
+      color: var(--teal-950);
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-decoration: none;
+
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.08);
+
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.13);
+    }
+
+    .site-header.scrolled .nav-cta {
+      background: var(--teal-900);
+      color: var(--white);
+    }
+
+
+    /* =========================================================
+       6. HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+      display: grid;
+      align-items: end;
+
+      min-height: 88vh;
+      padding: 170px 0 105px;
+
+      overflow: hidden;
+      isolation: isolate;
+
+      background:
+        linear-gradient(
+          115deg,
+          rgba(5, 52, 56, 0.98) 0%,
+          rgba(8, 79, 84, 0.94) 48%,
+          rgba(14, 111, 114, 0.88) 100%
+        );
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: -18% -10%;
+      z-index: -3;
+
+      background:
+        radial-gradient(
+          circle at 76% 24%,
+          rgba(255, 255, 255, 0.18),
+          transparent 20%
+        ),
+        radial-gradient(
+          circle at 23% 70%,
+          rgba(216, 170, 83, 0.18),
+          transparent 28%
+        ),
+        linear-gradient(
+          120deg,
+          transparent 10%,
+          rgba(255, 255, 255, 0.05) 48%,
+          transparent 75%
+        );
+
+      content: "";
+      transform: translate3d(0, var(--hero-parallax, 0px), 0);
+      will-change: transform;
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -12vw;
+      bottom: -28vw;
+      z-index: -2;
+
+      width: 64vw;
+      height: 64vw;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 0 6vw rgba(255, 255, 255, 0.025),
+        0 0 0 13vw rgba(255, 255, 255, 0.018);
+
+      content: "";
+      transform:
+        translate3d(0, calc(var(--hero-parallax, 0px) * -0.35), 0);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.45fr)
+        minmax(250px, 0.55fr);
+
+      align-items: end;
+      gap: 70px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+
+      margin: 0 0 24px;
+
+      color: var(--gold-300);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker::before {
+      width: 38px;
+      height: 1px;
+
+      background: currentColor;
+      content: "";
+    }
+
+    .hero h1 {
+      max-width: 940px;
+      margin: 0;
+
+      color: var(--white);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(3.5rem, 8vw, 7.8rem);
+      font-weight: 500;
+      letter-spacing: -0.062em;
+      line-height: 0.91;
+
+      text-wrap: balance;
+    }
+
+    .hero-summary {
+      max-width: 790px;
+      margin: 34px 0 0;
+
+      color: rgba(255, 255, 255, 0.77);
+      font-size: clamp(1.08rem, 1.9vw, 1.34rem);
+      line-height: 1.68;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+
+      margin-top: 38px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+
+      min-height: 52px;
+      padding: 0 23px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1;
+      text-decoration: none;
+
+      cursor: pointer;
+
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .button-primary {
+      background: var(--white);
+      color: var(--teal-950);
+
+      box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.13);
+    }
+
+    .button-primary:hover {
+      background: var(--gold-100);
+      transform: translateY(-3px);
+      box-shadow:
+        0 20px 38px rgba(0, 0, 0, 0.17);
+    }
+
+    .button-secondary {
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.46);
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-3px);
+    }
+
+    .hero-meta {
+      display: grid;
+      gap: 1px;
+
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-md);
+
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow:
+        0 28px 70px rgba(0, 0, 0, 0.12);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .hero-meta-item {
+      padding: 19px 22px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .hero-meta-label {
+      display: block;
+      margin-bottom: 5px;
+
+      color: var(--gold-300);
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .hero-meta-value {
+      color: rgba(255, 255, 255, 0.91);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      right: 26px;
+      bottom: 30px;
+
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+    .hero-scroll::after {
+      width: 1px;
+      height: 48px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.6),
+          transparent
+        );
+
+      content: "";
+    }
+
+
+    /* =========================================================
+       7. CASE OVERVIEW
+    ========================================================= */
+
+    .overview {
+      position: relative;
+      z-index: 5;
+      margin-top: -48px;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+
+      background: var(--line);
+      box-shadow: var(--shadow-md);
+    }
+
+    .overview-item {
+      min-height: 140px;
+      padding: 25px;
+
+      background: rgba(255, 255, 255, 0.94);
+
+      transition:
+        background var(--transition),
+        transform var(--transition);
+    }
+
+    .overview-item:hover {
+      background: var(--cream-100);
+    }
+
+    .overview-label {
+      display: block;
+      margin-bottom: 12px;
+
+      color: var(--teal-700);
+      font-size: 0.67rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .overview-value {
+      color: var(--ink-800);
+      font-size: 0.94rem;
+      font-weight: 700;
+      line-height: 1.48;
+    }
+
+
+    /* =========================================================
+       8. VIDEO SHOWCASE
+    ========================================================= */
+
+    .video-section {
+      padding-top: 115px;
+    }
+
+    .video-intro {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+
+      margin-bottom: 40px;
+    }
+
+    .video-intro-text {
+      max-width: 780px;
+    }
+
+    .video-shell {
+      position: relative;
+
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.98),
+          rgba(229, 244, 241, 0.54)
+        );
+
+      box-shadow: var(--shadow-lg);
+
+      transition:
+        transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        box-shadow 420ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        border-color 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .video-shell:hover {
+      border-color: rgba(42, 166, 165, 0.38);
+      box-shadow:
+        0 40px 100px rgba(7, 63, 67, 0.21),
+        0 0 0 7px rgba(42, 166, 165, 0.055);
+
+      transform: translateY(-7px);
+    }
+
+    .video-frame {
+      position: relative;
+      overflow: hidden;
+
+      aspect-ratio: 16 / 9;
+      border-radius: calc(var(--radius-lg) - 9px);
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--teal-950),
+          var(--teal-800)
+        );
+    }
+
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #071719;
+    }
+
+    .video-caption {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 28px;
+
+      padding: 30px 8px 4px;
+    }
+
+    .video-caption-label {
+      color: var(--teal-700);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .video-caption p {
+      margin: 0;
+      color: var(--ink-600);
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       9. STATEMENT BLOCK
+    ========================================================= */
+
+    .statement {
+      padding: 115px 0;
+    }
+
+    .statement-panel {
+      position: relative;
+      overflow: hidden;
+
+      padding: clamp(38px, 7vw, 82px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(229, 244, 241, 0.76),
+          rgba(255, 253, 248, 0.95) 45%,
+          rgba(247, 237, 207, 0.7)
+        );
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    .statement-panel::after {
+      position: absolute;
+      top: -160px;
+      right: -110px;
+
+      width: 360px;
+      height: 360px;
+      border: 1px solid rgba(14, 91, 95, 0.11);
+      border-radius: 50%;
+
+      content: "";
+    }
+
+    .statement-quote {
+      position: relative;
+      z-index: 1;
+
+      max-width: 880px;
+      margin: 0;
+
+      color: var(--teal-950);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(2rem, 4.5vw, 4.1rem);
+      letter-spacing: -0.045em;
+      line-height: 1.08;
+    }
+
+    .statement-note {
+      position: relative;
+      z-index: 1;
+
+      max-width: 680px;
+      margin: 30px 0 0;
+
+      color: var(--ink-600);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+
+    /* =========================================================
+       10. CHALLENGE AND GOAL
+    ========================================================= */
+
+    .split-section {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 0.82fr)
+        minmax(0, 1.18fr);
+
+      gap: clamp(50px, 9vw, 120px);
+      align-items: start;
+    }
+
+    .sticky-heading {
+      position: sticky;
+      top: 125px;
+    }
+
+    .content-stack {
+      display: grid;
+      gap: 28px;
+    }
+
+    .content-card {
+      position: relative;
+
+      padding: clamp(28px, 5vw, 46px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow-sm);
+
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+    }
+
+    .content-card:hover {
+      border-color: var(--line-strong);
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-5px);
+    }
+
+    .content-card-number {
+      display: block;
+      margin-bottom: 30px;
+
+      color: var(--gold-500);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 1.15rem;
+    }
+
+    .content-card h3 {
+      margin: 0;
+
+      color: var(--teal-950);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .content-card p {
+      margin: 18px 0 0;
+      color: var(--ink-600);
+      font-size: 1rem;
+      line-height: 1.76;
+    }
+
+
+    /* =========================================================
+       11. ROLE TABLE
+    ========================================================= */
+
+    .role-panel {
+      overflow: hidden;
+      margin-top: 46px;
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .role-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+
+      background: var(--line);
+    }
+
+    .role-cell {
+      padding: 23px 27px;
+      background: var(--white);
+
+      transition: background var(--transition);
+    }
+
+    .role-row:hover .role-cell {
+      background: var(--cream-100);
+    }
+
+    .role-row:first-child .role-cell {
+      background: var(--teal-950);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .role-cell strong {
+      color: var(--teal-900);
+    }
+
+
+    /* =========================================================
+       12. DESIGN DECISIONS
+    ========================================================= */
+
+    .decisions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+
+      margin-top: 48px;
+    }
+
+    .decision {
+      min-height: 270px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+
+      background:
+        linear-gradient(
+          155deg,
+          rgba(255, 255, 255, 0.96),
+          rgba(250, 246, 237, 0.9)
+        );
+
+      box-shadow: var(--shadow-sm);
+
+      transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .decision:hover {
+      border-color: rgba(17, 119, 124, 0.35);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-6px);
+    }
+
+    .decision-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 42px;
+      height: 42px;
+      margin-bottom: 36px;
+      border: 1px solid var(--gold-300);
+      border-radius: 50%;
+
+      color: var(--teal-800);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 0.9rem;
+    }
+
+    .decision h3 {
+      margin: 0;
+
+      color: var(--teal-950);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 1.55rem;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+
+    .decision p {
+      margin: 16px 0 0;
+      color: var(--ink-600);
+      line-height: 1.73;
+    }
+
+
+    /* =========================================================
+       13. PROCESS
+    ========================================================= */
+
+    .process-section {
+      background: var(--teal-950);
+      color: var(--white);
+    }
+
+    .process-section .section-label {
+      color: var(--gold-300);
+    }
+
+    .process-section .section-heading {
+      color: var(--white);
+    }
+
+    .process-section .section-intro {
+      color: rgba(255, 255, 255, 0.67);
+    }
+
+    .process {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+
+      margin-top: 65px;
+    }
+
+    .process::before {
+      position: absolute;
+      top: 22px;
+      right: 7%;
+      left: 7%;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          rgba(234, 209, 154, 0.65) 10%,
+          rgba(234, 209, 154, 0.65) 90%,
+          transparent
+        );
+
+      content: "";
+    }
+
+    .process-step {
+      position: relative;
+      z-index: 2;
+      padding: 0 15px;
+      text-align: center;
+    }
+
+    .process-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 45px;
+      height: 45px;
+      margin: 0 auto 25px;
+
+      border: 1px solid rgba(234, 209, 154, 0.72);
+      border-radius: 50%;
+
+      background: var(--teal-950);
+      color: var(--gold-300);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      box-shadow:
+        0 0 0 8px var(--teal-950);
+
+      transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+    }
+
+    .process-step:hover .process-marker {
+      background: var(--gold-300);
+      color: var(--teal-950);
+      transform: scale(1.08);
+    }
+
+    .process-step h3 {
+      margin: 0;
+      color: var(--white);
+      font-size: 0.87rem;
+      line-height: 1.45;
+    }
+
+    .process-step p {
+      margin: 9px 0 0;
+
+      color: rgba(255, 255, 255, 0.54);
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+
+    /* =========================================================
+       14. OUTCOMES
+    ========================================================= */
+
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+
+      overflow: hidden;
+      margin-top: 48px;
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+
+      background: var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .outcome {
+      min-height: 210px;
+      padding: 38px;
+
+      background: rgba(255, 255, 255, 0.9);
+
+      transition:
+        background var(--transition),
+        transform var(--transition);
+    }
+
+    .outcome:hover {
+      background: var(--teal-100);
+    }
+
+    .outcome-line {
+      display: block;
+
+      width: 44px;
+      height: 3px;
+      margin-bottom: 31px;
+
+      background: var(--gold-500);
+    }
+
+    .outcome h3 {
+      margin: 0;
+
+      color: var(--teal-950);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+
+    .outcome p {
+      margin: 15px 0 0;
+      color: var(--ink-600);
+      line-height: 1.72;
+    }
+
+
+    /* =========================================================
+       15. REFLECTION
+    ========================================================= */
+
+    .reflection {
+      position: relative;
+      overflow: hidden;
+
+      padding: clamp(42px, 8vw, 88px);
+      border-radius: var(--radius-xl);
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--teal-950),
+          var(--teal-800)
+        );
+
+      box-shadow: var(--shadow-lg);
+    }
+
+    .reflection::before {
+      position: absolute;
+      top: -130px;
+      right: -90px;
+
+      width: 360px;
+      height: 360px;
+
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 50%;
+
+      content: "";
+      box-shadow:
+        0 0 0 55px rgba(255, 255, 255, 0.025),
+        0 0 0 110px rgba(255, 255, 255, 0.018);
+    }
+
+    .reflection-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .reflection .section-label {
+      color: var(--gold-300);
+    }
+
+    .reflection h2 {
+      margin: 0;
+
+      color: var(--white);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      line-height: 1.06;
+    }
+
+    .reflection p {
+      max-width: 730px;
+      margin: 28px 0 0;
+
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1.08rem;
+      line-height: 1.78;
+    }
+
+
+    /* =========================================================
+       16. NEXT PROJECT
+    ========================================================= */
+
+    .next-project {
+      position: relative;
+      display: block;
+      overflow: hidden;
+
+      padding: clamp(38px, 7vw, 76px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+
+      background: var(--cream-100);
+      color: inherit;
+      text-decoration: none;
+
+      transition:
+        background var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+    }
+
+    .next-project:hover {
+      border-color: rgba(17, 119, 124, 0.35);
+      background: var(--teal-100);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-6px);
+    }
+
+    .next-project-label {
+      display: block;
+      margin-bottom: 28px;
+
+      color: var(--teal-700);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .next-project-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+
+      color: var(--teal-950);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1.07;
+    }
+
+    .next-project-arrow {
+      flex: 0 0 auto;
+      transition: transform var(--transition);
+    }
+
+    .next-project:hover .next-project-arrow {
+      transform: translate(8px, -5px);
+    }
+
+
+    /* =========================================================
+       17. FOOTER
+    ========================================================= */
+
+    .site-footer {
+      padding: 75px 0 40px;
+    }
+
+    .footer-shell {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-name {
+      margin: 0;
+
+      color: var(--teal-950);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 1.3rem;
+    }
+
+    .footer-copy {
+      margin: 9px 0 0;
+      color: var(--ink-500);
+      font-size: 0.83rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--ink-600);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal-700);
+    }
+
+
+    /* =========================================================
+       18. REVEAL ANIMATIONS
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+
+      transition:
+        opacity 760ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 760ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 90ms;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 180ms;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 270ms;
+    }
+
+
+    /* =========================================================
+       19. RESPONSIVE STYLES
+    ========================================================= */
+
+    @media (max-width: 980px) {
+      .hero {
+        min-height: auto;
+        padding-top: 155px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero-meta {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .overview-item:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+
+      .sticky-heading {
+        position: static;
+      }
+
+      .process {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 0;
+      }
+
+      .process::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(
+          calc(100% - 28px),
+          var(--content-width)
+        );
+      }
+
+      .section {
+        padding: 82px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-shell {
+        padding-left: 17px;
+      }
+
+      .hero {
+        padding:
+          135px
+          0
+          88px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.1rem, 15vw, 5rem);
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      .overview {
+        margin-top: -30px;
+      }
+
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-item:last-child {
+        grid-column: auto;
+      }
+
+      .video-intro {
+        display: block;
+      }
+
+      .video-intro .text-link {
+        margin-top: 26px;
+      }
+
+      .video-shell {
+        padding: 7px;
+        border-radius: 22px;
+      }
+
+      .video-frame {
+        border-radius: 16px;
+      }
+
+      .video-caption {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 24px 8px 7px;
+      }
+
+      .decisions-grid,
+      .outcomes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .role-row {
+        grid-template-columns: 1fr;
+      }
+
+      .role-row:first-child {
+        display: none;
+      }
+
+      .role-cell {
+        position: relative;
+        padding: 22px;
+      }
+
+      .role-row:not(:first-child) .role-cell:first-child {
+        padding-bottom: 9px;
+        font-weight: 800;
+      }
+
+      .role-row:not(:first-child) .role-cell:last-child {
+        padding-top: 9px;
+        color: var(--ink-600);
+      }
+
+      .process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-shell {
+        display: block;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+        margin-top: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-cta {
+        display: none;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .process {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .process-step {
+        text-align: left;
+      }
+
+      .process-marker {
+        margin-left: 0;
+      }
+
+      .next-project-title {
+        align-items: flex-end;
+      }
+    }
+
+
+    /* =========================================================
+       20. REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
+
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="nav-shell" aria-label="Primary navigation">
+
+        <a class="brand" href="../index.html">
+          Larisa Forbs
+        </a>
+
+        <ul class="nav-links">
+          <li>
+            <a href="../index.html">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#strategy">
+              Strategy
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#digital">
+              Digital
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#signature">
+              Signature
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#about">
+              About
+            </a>
+          </li>
+        </ul>
+
+        <a
+          class="nav-cta"
+          href="mailto:forbslarisa@gmail.com"
+        >
+          Contact
+        </a>
+
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="main-content">
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero" id="hero">
+      <div class="container">
+
+        <div class="hero-grid">
+
+          <div>
+            <p class="hero-kicker">
+              Learning Design Case Study
+            </p>
+
+            <h1>
+              Story-Driven Performance Support
+            </h1>
+
+            <p class="hero-summary">
+              Using narrative design and animation to help
+              Adult Education staff uncover learner goals,
+              recommend relevant career pathways, and turn
+              enrollment conversations into meaningful guidance.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="#learning-experience"
+              >
+                Watch the learning experience
+              </a>
+
+              <a
+                class="button button-secondary"
+                href="#case-study"
+              >
+                Explore the case study
+              </a>
+            </div>
+          </div>
+
+
+          <aside class="hero-meta" aria-label="Project overview">
+
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">
+                Context
+              </span>
+
+              <span class="hero-meta-value">
+                Adult Education enrollment and program guidance
+              </span>
+            </div>
+
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">
+                Intervention
+              </span>
+
+              <span class="hero-meta-value">
+                Animated scenario-based learning experience
+              </span>
+            </div>
+
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">
+                Focus
+              </span>
+
+              <span class="hero-meta-value">
+                Staff enablement and learner-program matching
+              </span>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        Scroll
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         EXECUTIVE OVERVIEW
+    ====================================================== -->
+
+    <section class="overview" aria-label="Case overview">
+      <div class="container">
+
+        <div class="overview-grid reveal">
+
+          <div class="overview-item">
+            <span class="overview-label">
+              Project
+            </span>
+
+            <div class="overview-value">
+              Enrollment Conversation Enablement
+            </div>
+          </div>
+
+          <div class="overview-item">
+            <span class="overview-label">
+              My Role
+            </span>
+
+            <div class="overview-value">
+              Learning Designer and Project Lead
+            </div>
+          </div>
+
+          <div class="overview-item">
+            <span class="overview-label">
+              Format
+            </span>
+
+            <div class="overview-value">
+              Storytelling and Animation
+            </div>
+          </div>
+
+          <div class="overview-item">
+            <span class="overview-label">
+              Audience
+            </span>
+
+            <div class="overview-value">
+              Adult Education Staff
+            </div>
+          </div>
+
+          <div class="overview-item">
+            <span class="overview-label">
+              Performance Goal
+            </span>
+
+            <div class="overview-value">
+              Better Discovery, Referral, and Enrollment
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         VIDEO
+    ====================================================== -->
+
+    <section
+      class="section video-section"
+      id="learning-experience"
+    >
+      <div class="container">
+
+        <div class="video-intro reveal">
+
+          <div class="video-intro-text">
+            <p class="section-label">
+              Featured Learning Experience
+            </p>
+
+            <h2 class="section-heading">
+              Meet Pedro
+            </h2>
+
+            <p class="section-intro">
+              A learner arrives asking for English classes.
+              The conversation reveals that English is not the
+              destination. It is one step toward a commercial
+              driving career.
+            </p>
+          </div>
+
+          <a
+            class="text-link"
+            href="#"
+            id="fullScreenLink"
+          >
+            Open full screen
+          </a>
+
+        </div>
+
+
+        <div class="video-shell reveal reveal-delay-1">
+
+          <div class="video-frame">
+
+            <video
+              id="caseVideo"
+              controls
+              playsinline
+              preload="metadata"
+
+              <!--
+                Optional poster:
+                poster="../assets/images/pedro-video-poster.jpg"
+              -->
+            >
+              <source
+                src="../assets/video/REPLACE-WITH-YOUR-VIDEO.mp4"
+                type="video/mp4"
+              >
+
+              Your browser does not support embedded video.
+              You can download or open the video file directly.
+            </video>
+
+          </div>
+
+
+          <div class="video-caption">
+
+            <div class="video-caption-label">
+              Scenario
+            </div>
+
+            <p>
+              Pedro visits the Adult Education office looking
+              for English classes. Through purposeful questioning,
+              staff discover that his long-term goal is commercial
+              truck driving. The conversation shifts from a
+              single-course request toward a pathway that connects
+              language learning with CDL preparation.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         WHY STORY
+    ====================================================== -->
+
+    <section class="statement">
+      <div class="container">
+
+        <div class="statement-panel reveal">
+
+          <p class="statement-quote">
+            Procedures tell employees what to do.
+            Stories help them recognize when to do it.
+          </p>
+
+          <p class="statement-note">
+            The animation turns an abstract advising principle
+            into a visible behavioral pattern: listen beyond the
+            first request, uncover the learner's real objective,
+            and connect that objective to an appropriate pathway.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         CHALLENGE AND GOAL
+    ====================================================== -->
+
+    <section
+      class="section"
+      id="case-study"
+    >
+      <div class="container">
+
+        <div class="split-section">
+
+          <div class="sticky-heading reveal">
+            <p class="section-label">
+              Business Need
+            </p>
+
+            <h2 class="section-heading">
+              The first request is not always the real need
+            </h2>
+
+            <p class="section-intro">
+              Enrollment conversations shape which opportunities
+              learners can see and access.
+            </p>
+          </div>
+
+
+          <div class="content-stack">
+
+            <article class="content-card reveal">
+              <span class="content-card-number">
+                01
+              </span>
+
+              <h3>
+                Business challenge
+              </h3>
+
+              <p>
+                Adult Education staff often meet learners who ask
+                for a familiar service, such as an ESL class,
+                without knowing the full range of education and
+                workforce pathways available to them.
+              </p>
+
+              <p>
+                When staff respond only to the initial request,
+                important career goals may remain undiscovered.
+                This can result in incomplete referrals, missed
+                enrollment opportunities, and learning plans that
+                do not fully support the learner's intended future.
+              </p>
+            </article>
+
+
+            <article class="content-card reveal reveal-delay-1">
+              <span class="content-card-number">
+                02
+              </span>
+
+              <h3>
+                Project goal
+              </h3>
+
+              <p>
+                Design a concise learning intervention that models
+                an effective enrollment conversation and helps
+                staff recognize how purposeful questions can reveal
+                a learner's broader educational and career goals.
+              </p>
+
+              <p>
+                The experience needed to be short, human, memorable,
+                and usable as a staff enablement asset rather than
+                another information-heavy program presentation.
+              </p>
+            </article>
+
+
+            <article class="content-card reveal reveal-delay-2">
+              <span class="content-card-number">
+                03
+              </span>
+
+              <h3>
+                The solution
+              </h3>
+
+              <p>
+                Instead of listing programs or explaining referral
+                procedures, the learning experience presents a
+                realistic learner story.
+              </p>
+
+              <p>
+                Staff observe how a simple conversation moves from
+                an immediate request for English classes toward a
+                more relevant pathway connecting ESL support with
+                commercial driver preparation.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         MY ROLE
+    ====================================================== -->
+
+    <section class="section section-small">
+      <div class="container">
+
+        <div class="reveal">
+          <p class="section-label">
+            My Contribution
+          </p>
+
+          <h2 class="section-heading">
+            From performance gap to finished learning asset
+          </h2>
+        </div>
+
+
+        <div class="role-panel reveal reveal-delay-1">
+
+          <div class="role-row">
+            <div class="role-cell">
+              Responsibility
+            </div>
+
+            <div class="role-cell">
+              Output
+            </div>
+          </div>
+
+          <div class="role-row">
+            <div class="role-cell">
+              <strong>Performance gap analysis</strong>
+            </div>
+
+            <div class="role-cell">
+              Defined the enrollment behavior the intervention
+              needed to support.
+            </div>
+          </div>
+
+          <div class="role-row">
+            <div class="role-cell">
+              <strong>Audience and context analysis</strong>
+            </div>
+
+            <div class="role-cell">
+              Framed the experience for frontline staff working
+              with diverse adult learners.
+            </div>
+          </div>
+
+          <div class="role-row">
+            <div class="role-cell">
+              <strong>Narrative design</strong>
+            </div>
+
+            <div class="role-cell">
+              Developed the learner journey, behavioral arc,
+              dialogue, and decision points.
+            </div>
+          </div>
+
+          <div class="role-row">
+            <div class="role-cell">
+              <strong>Script and storyboard development</strong>
+            </div>
+
+            <div class="role-cell">
+              Translated the learning objective into scenes,
+              pacing, visual actions, and voice-over.
+            </div>
+          </div>
+
+          <div class="role-row">
+            <div class="role-cell">
+              <strong>AI-assisted production</strong>
+            </div>
+
+            <div class="role-cell">
+              Used AI-supported voice and content workflows while
+              retaining human direction over learning strategy,
+              tone, accuracy, and final decisions.
+            </div>
+          </div>
+
+          <div class="role-row">
+            <div class="role-cell">
+              <strong>Animation development</strong>
+            </div>
+
+            <div class="role-cell">
+              Produced the final animated learning experience and
+              prepared it for digital portfolio deployment.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DESIGN DECISIONS
+    ====================================================== -->
+
+    <section class="section">
+      <div class="container">
+
+        <div class="reveal">
+          <p class="section-label">
+            Learning Design Decisions
+          </p>
+
+          <h2 class="section-heading">
+            Designed for recognition, not memorization
+          </h2>
+
+          <p class="section-intro">
+            Each design choice supports the transfer of a
+            conversational behavior into authentic staff practice.
+          </p>
+        </div>
+
+
+        <div class="decisions-grid">
+
+          <article class="decision reveal">
+            <span class="decision-index">
+              01
+            </span>
+
+            <h3>
+              Narrative learning
+            </h3>
+
+            <p>
+              The learner journey gives staff a memorable mental
+              model they can recognize when a similar conversation
+              unfolds in real life.
+            </p>
+          </article>
+
+
+          <article class="decision reveal reveal-delay-1">
+            <span class="decision-index">
+              02
+            </span>
+
+            <h3>
+              Scenario-based instruction
+            </h3>
+
+            <p>
+              The intervention demonstrates effective behavior in
+              context rather than describing advising principles
+              through abstract procedures.
+            </p>
+          </article>
+
+
+          <article class="decision reveal reveal-delay-2">
+            <span class="decision-index">
+              03
+            </span>
+
+            <h3>
+              Behavior modeling
+            </h3>
+
+            <p>
+              Staff observe a repeatable sequence: explore the
+              request, uncover the goal, identify the pathway,
+              and explain the connection.
+            </p>
+          </article>
+
+
+          <article class="decision reveal reveal-delay-3">
+            <span class="decision-index">
+              04
+            </span>
+
+            <h3>
+              Cognitive economy
+            </h3>
+
+            <p>
+              A short animated story reduces information density
+              and concentrates attention on one high-value
+              conversational pattern.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         PROCESS
+    ====================================================== -->
+
+    <section class="section process-section">
+      <div class="container">
+
+        <div class="reveal">
+          <p class="section-label">
+            Development Process
+          </p>
+
+          <h2 class="section-heading">
+            A focused production workflow
+          </h2>
+
+          <p class="section-intro">
+            The production process began with the performance
+            need, not the animation tool.
+          </p>
+        </div>
+
+
+        <div class="process">
+
+          <div class="process-step reveal">
+            <div class="process-marker">
+              1
+            </div>
+
+            <h3>
+              Gap Analysis
+            </h3>
+
+            <p>
+              Defined the missed behavior and opportunity.
+            </p>
+          </div>
+
+
+          <div class="process-step reveal reveal-delay-1">
+            <div class="process-marker">
+              2
+            </div>
+
+            <h3>
+              Audience Analysis
+            </h3>
+
+            <p>
+              Identified the staff context and learner interaction.
+            </p>
+          </div>
+
+
+          <div class="process-step reveal reveal-delay-2">
+            <div class="process-marker">
+              3
+            </div>
+
+            <h3>
+              Story Design
+            </h3>
+
+            <p>
+              Built the learner journey and behavioral arc.
+            </p>
+          </div>
+
+
+          <div class="process-step reveal reveal-delay-3">
+            <div class="process-marker">
+              4
+            </div>
+
+            <h3>
+              Script and Storyboard
+            </h3>
+
+            <p>
+              Mapped dialogue, visuals, pacing, and transitions.
+            </p>
+          </div>
+
+
+          <div class="process-step reveal">
+            <div class="process-marker">
+              5
+            </div>
+
+            <h3>
+              Voice Production
+            </h3>
+
+            <p>
+              Developed and refined the narration workflow.
+            </p>
+          </div>
+
+
+          <div class="process-step reveal reveal-delay-1">
+            <div class="process-marker">
+              6
+            </div>
+
+            <h3>
+              Animation
+            </h3>
+
+            <p>
+              Produced and prepared the finished learning asset.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         EXPECTED OUTCOMES
+    ====================================================== -->
+
+    <section class="section">
+      <div class="container">
+
+        <div class="reveal">
+          <p class="section-label">
+            Intended Performance Impact
+          </p>
+
+          <h2 class="section-heading">
+            Better conversations create better pathways
+          </h2>
+
+          <p class="section-intro">
+            This portfolio prototype illustrates how the
+            intervention could support staff performance.
+            Formal implementation data has not yet been collected.
+          </p>
+        </div>
+
+
+        <div class="outcomes-grid">
+
+          <article class="outcome reveal">
+            <span class="outcome-line"></span>
+
+            <h3>
+              Stronger needs discovery
+            </h3>
+
+            <p>
+              Staff look beyond the initial request and explore
+              the learner's broader educational and employment
+              goals.
+            </p>
+          </article>
+
+
+          <article class="outcome reveal reveal-delay-1">
+            <span class="outcome-line"></span>
+
+            <h3>
+              Better program matching
+            </h3>
+
+            <p>
+              Learners are connected to pathways that more closely
+              align with their intended outcomes.
+            </p>
+          </article>
+
+
+          <article class="outcome reveal reveal-delay-2">
+            <span class="outcome-line"></span>
+
+            <h3>
+              More consistent conversations
+            </h3>
+
+            <p>
+              The narrative offers a shared model for enrollment
+              guidance across staff roles and locations.
+            </p>
+          </article>
+
+
+          <article class="outcome reveal reveal-delay-3">
+            <span class="outcome-line"></span>
+
+            <h3>
+              Greater enrollment opportunity
+            </h3>
+
+            <p>
+              Relevant programs become visible to learners who may
+              not have known to ask about them directly.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         REFLECTION
+    ====================================================== -->
+
+    <section class="section section-small">
+      <div class="container">
+
+        <div class="reflection reveal">
+
+          <div class="reflection-content">
+            <p class="section-label">
+              Reflection
+            </p>
+
+            <h2>
+              Animation was the format.
+              Behavior change was the objective.
+            </h2>
+
+            <p>
+              This project reinforced an important instructional
+              design principle: a short story can function as
+              performance support when it makes an invisible
+              decision process visible.
+            </p>
+
+            <p>
+              Rather than asking staff to memorize another list of
+              programs, the experience models how curiosity,
+              purposeful questioning, and learner-centered guidance
+              can reveal a more meaningful educational pathway.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         NEXT PROJECT
+    ====================================================== -->
+
+    <section class="section section-small">
+      <div class="container">
+
+        <!--
+          Replace the href with the real next case-study page.
+        -->
+
+        <a
+          class="next-project reveal"
+          href="onboarding.html"
+        >
+          <span class="next-project-label">
+            Next Case Study
+          </span>
+
+          <span class="next-project-title">
+            VividWorld Apparel Onboarding
+
+            <span
+              class="next-project-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-shell">
+
+        <div>
+          <p class="footer-name">
+            Larisa Forbs
+          </p>
+
+          <p class="footer-copy">
+            Instructional Design · Learning Strategy ·
+            Performance Support
+          </p>
+        </div>
+
+
+        <div class="footer-links">
+          <a href="../index.html">
+            Portfolio
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/larisa-forbs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a href="mailto:forbslarisa@gmail.com">
+            Email
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    /* =========================================================
+       1. NAVIGATION BACKGROUND
+    ========================================================= */
+
+    const siteHeader = document.getElementById("siteHeader");
+
+    function updateHeader() {
+      siteHeader.classList.toggle(
+        "scrolled",
+        window.scrollY > 40
+      );
+    }
+
+    updateHeader();
+
+    window.addEventListener(
+      "scroll",
+      updateHeader,
+      { passive: true }
+    );
+
+
+    /* =========================================================
+       2. SCROLL REVEAL
+    ========================================================= */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const reducedMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+    if (reducedMotion) {
+      revealElements.forEach((element) => {
+        element.classList.add("is-visible");
+      });
+    } else {
+      const revealObserver =
+        new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          {
+            threshold: 0.12,
+            rootMargin: "0px 0px -70px 0px"
+          }
+        );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    }
+
+
+    /* =========================================================
+       3. SUBTLE HERO PARALLAX
+    ========================================================= */
+
+    const hero = document.getElementById("hero");
+
+    function updateHeroParallax() {
+      if (reducedMotion) {
+        return;
+      }
+
+      const heroBottom =
+        hero.offsetTop + hero.offsetHeight;
+
+      if (window.scrollY > heroBottom) {
+        return;
+      }
+
+      const movement =
+        Math.min(window.scrollY * 0.16, 110);
+
+      hero.style.setProperty(
+        "--hero-parallax",
+        `${movement}px`
+      );
+    }
+
+    updateHeroParallax();
+
+    window.addEventListener(
+      "scroll",
+      updateHeroParallax,
+      { passive: true }
+    );
+
+
+    /* =========================================================
+       4. FULLSCREEN VIDEO LINK
+    ========================================================= */
+
+    const caseVideo =
+      document.getElementById("caseVideo");
+
+    const fullScreenLink =
+      document.getElementById("fullScreenLink");
+
+    fullScreenLink.addEventListener(
+      "click",
+      async (event) => {
+        event.preventDefault();
+
+        try {
+          if (caseVideo.requestFullscreen) {
+            await caseVideo.requestFullscreen();
+          } else if (caseVideo.webkitEnterFullscreen) {
+            caseVideo.webkitEnterFullscreen();
+          }
+        } catch (error) {
+          console.warn(
+            "Fullscreen mode could not be opened:",
+            error
+          );
+        }
+      }
+    );
+  </script>
+
+</body>
+</html>
