@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,21 +7,142 @@
   <title>Larisa Forbs | L&D + Instructional Design</title>
   <link rel="stylesheet" href="style.css" />
 
+  <style>
+    /* ACCESSIBILITY CERTIFICATE BUTTON */
+    .certificate-button {
+      font-family: inherit;
+      cursor: pointer;
+      border: 1px solid rgba(15, 76, 92, 0.2);
+    }
+
+    /* CERTIFICATE POP-UP */
+    .certificate-dialog {
+      width: min(950px, calc(100% - 32px));
+      max-height: 94vh;
+      padding: 0;
+      border: none;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+      overflow: auto;
+    }
+
+    .certificate-dialog::backdrop {
+      background: rgba(8, 34, 43, 0.78);
+      backdrop-filter: blur(5px);
+    }
+
+    .certificate-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 24px;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .certificate-header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #0F4C5C;
+    }
+
+    .certificate-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border: none;
+      border-radius: 50%;
+      background: #f0f4f5;
+      color: #0F4C5C;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .certificate-close:hover {
+      background: #dceeed;
+    }
+
+    .certificate-viewer {
+      padding: 16px 24px 24px;
+    }
+
+    .certificate-viewer iframe {
+      display: block;
+      width: 100%;
+      height: min(68vh, 750px);
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      background: #f7f9fb;
+    }
+
+    .certificate-message {
+      padding: 50px 20px;
+      text-align: center;
+      color: #52676c;
+    }
+
+    .certificate-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 14px;
+    }
+
+    .certificate-actions a {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0F4C5C;
+      text-decoration: underline;
+    }
+
+    .certificate-button:focus-visible,
+    .certificate-close:focus-visible,
+    .certificate-actions a:focus-visible {
+      outline: 3px solid #F2B705;
+      outline-offset: 3px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 600px) {
+      .certificate-header {
+        padding: 16px;
+      }
+
+      .certificate-header h2 {
+        font-size: 17px;
+      }
+
+      .certificate-viewer {
+        padding: 12px;
+      }
+
+      .certificate-viewer iframe {
+        height: 65vh;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
 <header class="nav">
   <div class="container nav-inner">
     <div class="brand">
-        <strong>Larisa Forbs</strong>
-  <span>Learning Architect</span>
+      <strong>Larisa Forbs</strong>
+      <span>Learning Architect</span>
     </div>
 
     <nav class="nav-links" aria-label="Primary">
       <a href="index.html" class="active">Home</a>
       <a href="pages/strategy.html">Strategy</a>
       <a href="pages/digital.html">Projects</a>
-       <a href="pages/story-driven-learning.html">Animation</a>
+      <a href="pages/story-driven-learning.html">Animation</a>
       <a href="pages/signature.html">Signature</a>
     </nav>
   </div>
@@ -32,49 +154,85 @@
     <div class="kicker">
       <span class="kicker-dot"></span>
       Transforming Complex Knowledge into Accessible Learning.
-      
     </div>
 
     <h1>
-    Larisa Forbs: eLearning Architecture
+      Larisa Forbs: eLearning Architecture
     </h1>
 
     <p>
-      Instructional design for technical professionals, multilingual teams, and complex learning environments.
+      Instructional design for technical professionals,
+      multilingual teams, and complex learning environments.
     </p>
 
     <div class="cta-row">
-      <a class="btn primary" href="pages/digital.html">Explore Work</a>
-      <a href="assets/LARISA FORBS_L&D_Resume.pdf"
-        class="btn ghost"
-        download>Download Resume
+
+      <a class="btn primary" href="pages/digital.html">
+        Explore Work
       </a>
+
+      <a
+        href="assets/LARISA FORBS_L&D_Resume.pdf"
+        class="btn ghost"
+        download>
+        Download Resume
+      </a>
+
+      <!-- NEW: ACCESSIBILITY CERTIFICATION -->
+      <button
+        type="button"
+        class="btn ghost certificate-button"
+        id="openCertificate">
+        Accessibility Certification ↗
+      </button>
+
     </div>
 
   </div>
 </section>
 
-  <section class="about">
+<section class="about">
   <div class="container">
     <div class="about-content">
-      <div class="about-text">
-           <h2>About Me</h2>
-        <p>I specialize in translating complex knowledge into clear, usable learning.
-My work combines instructional design, pedagogy, and knowledge translation. Across projects, I focus on transforming complex knowledge - academic, technical, and sensitive, into structured content - accurate and accessible, for effective learning experiences.
-<br><br>Across such different contexts, the core challenge is the same: preserving the integrity of complex knowledge while making it understandable, structured, and applicable in real-world situations.</p> 
-         <div class="cta-row">
-      <a class="btn primary" href="pages/story-driven-learning.html">Featured now: Story-Driven Learning ↗ </a>
-        </div>
 
+      <div class="about-text">
+        <h2>About Me</h2>
+
+        <p>
+          I specialize in translating complex knowledge into clear,
+          usable learning. My work combines instructional design,
+          pedagogy, and knowledge translation. Across projects,
+          I focus on transforming complex knowledge - academic,
+          technical, and sensitive, into structured content -
+          accurate and accessible, for effective learning experiences.
+
+          <br><br>
+
+          Across such different contexts, the core challenge is
+          the same: preserving the integrity of complex knowledge
+          while making it understandable, structured, and
+          applicable in real-world situations.
+        </p>
+
+        <div class="cta-row">
+          <a
+            class="btn primary"
+            href="pages/story-driven-learning.html">
+            Featured now: Story-Driven Learning ↗
+          </a>
+        </div>
       </div>
+
       <div class="about-image">
-        <img src="assets/about-image.jpg" alt="Larisa Forbs">
+        <img
+          src="assets/about-image.jpg"
+          alt="Larisa Forbs">
       </div>
+
     </div>
   </div>
 </section>
 
-  
 <section class="section">
   <div class="container">
 
@@ -84,53 +242,78 @@ My work combines instructional design, pedagogy, and knowledge translation. Acro
     </div>
 
     <p class="lede">
-      The portfolio is organized by my learning design strategy, digital execution, my program leadership experience, and my signature expertise.
+      The portfolio is organized by my learning design strategy,
+      digital execution, my program leadership experience,
+      and my signature expertise.
     </p>
 
     <div class="grid">
 
       <a class="card clickable" href="pages/strategy.html">
         <h3>Learning Strategy & Architecture</h3>
-        <p>Program design, methodology, measurement frameworks, governance standards, scaling.</p>
+        <p>
+          Program design, methodology, measurement frameworks,
+          governance standards, scaling.
+        </p>
         <div class="meta">
           <span class="pill aqua">Strategy</span>
           <span class="pill">Measurement</span>
           <span class="pill aqua">Optimization</span>
         </div>
-        <div class="card-cta">Open My Learning Strategy page ↗</div>
+        <div class="card-cta">
+          Open My Learning Strategy page ↗
+        </div>
       </a>
 
       <a class="card clickable" href="pages/digital.html">
         <h3>My Projects</h3>
-        <p>Knowledge curation & language adaptation, curriculum & content development, Rise development, SCORM deployment, HTML, LMS configuration.</p>
+        <p>
+          Knowledge curation & language adaptation,
+          curriculum & content development,
+          Rise development, SCORM deployment,
+          HTML, LMS configuration.
+        </p>
         <div class="meta">
           <span class="pill">SCORM</span>
           <span class="pill aqua">LMS</span>
-           <span class="pill">HTML</span>
+          <span class="pill">HTML</span>
         </div>
-         <div class="card-cta">Open My Projects page ↗</div>
+        <div class="card-cta">
+          Open My Projects page ↗
+        </div>
       </a>
 
       <a class="card clickable" href="pages/signature.html">
         <h3>My Signature Expertise</h3>
-        <p>Complex topics, language adaptation, trauma-informed learning, psychological safety, language proficiency awareness.</p>
+        <p>
+          Complex topics, language adaptation,
+          trauma-informed learning, psychological safety,
+          language proficiency awareness.
+        </p>
         <div class="meta">
           <span class="pill gold">Psychological safety</span>
           <span class="pill">Inclusive facilitation</span>
-                <span class="pill aqua">Language awareness</span>
-            </div>
-         <div class="card-cta">Open Signature Expertise page ↗</div>
+          <span class="pill aqua">Language awareness</span>
+        </div>
+        <div class="card-cta">
+          Open Signature Expertise page ↗
+        </div>
       </a>
 
       <a class="card clickable" href="pages/forbesschool.html">
         <h3>Program Leadership & Scaling</h3>
-        <p>Learning operations, stakeholder cadence, train-the-trainer models, ecosystem design.</p>
+        <p>
+          Learning operations, stakeholder cadence,
+          train-the-trainer models, ecosystem design.
+        </p>
         <div class="meta">
           <span class="pill aqua">Scaling</span>
           <span class="pill">Leadership</span>
-                <span class="pill gold">Ground up</span>
+          <span class="pill gold">Ground up</span>
         </div>
-        <div class="card-cta">Open Forbes School case ↗</div>
+        <div class="card-cta">
+          Open Forbes School case ↗
+        </div>
       </a>
 
     </div>
@@ -146,84 +329,261 @@ My work combines instructional design, pedagogy, and knowledge translation. Acro
     </div>
 
     <p class="lede">
-      Selected examples representing digital, strategic, and scaled learning environments.
+      Selected examples representing digital, strategic,
+      and scaled learning environments.
     </p>
 
     <div class="grid">
 
       <a class="card third clickable" href="pages/mindset.html">
-        <h3>Management Training: Growth Mindset for Performance</h3>
-        <p>Behavior-focused eLearning with scenario-based assessment.</p>
+        <h3>
+          Management Training: Growth Mindset for Performance
+        </h3>
+        <p>
+          Behavior-focused eLearning with scenario-based assessment.
+        </p>
         <div class="meta">
           <span class="pill gold">Management level</span>
           <span class="pill aqua">Behavioral design</span>
-            <div class="card-cta">Open Growth Manidset case ↗</div>
+        </div>
+        <div class="card-cta">
+          Open Growth Manidset case ↗
         </div>
       </a>
 
       <a class="card third clickable" href="pages/interview.html">
         <h3>Technical Professionals Training</h3>
-        <p>Pereparation for international Energy sector professionals.</p>
+        <p>
+          Pereparation for international Energy sector professionals.
+        </p>
         <div class="meta">
           <span class="pill aqua">Energy</span>
           <span class="pill">Language awareness</span>
           <span class="pill gold">Translation-friendly</span>
         </div>
-          <div class="card-cta">Open High-Risk Industry cases ↗</div>
+        <div class="card-cta">
+          Open High-Risk Industry cases ↗
+        </div>
       </a>
 
       <a class="card third clickable" href="pages/forbesschool.html">
-        <h3>Ground up learning ecosystems: Forbes School</h3>
-        <p>Scaled curriculum architecture serving 600+ learners.</p>
+        <h3>
+          Ground up learning ecosystems: Forbes School
+        </h3>
+        <p>
+          Scaled curriculum architecture serving 600+ learners.
+        </p>
         <div class="meta">
           <span class="pill aqua">Scaling</span>
           <span class="pill">Founder-led</span>
         </div>
-          <div class="card-cta">Open Forbes School case ↗</div>
+        <div class="card-cta">
+          Open Forbes School case ↗
+        </div>
       </a>
+
     </div>
   </div>
 </section>
 
-  <section class="section">
+<section class="section">
   <div class="container">
-    <div class="h2"><span class="rule"></span> Downloads</div>
-    <p class="lede">Click below to download my resume or portfolio.</p>
+
+    <div class="h2">
+      <span class="rule"></span>
+      Downloads
+    </div>
+
+    <p class="lede">
+      Click below to download my resume or portfolio.
+    </p>
 
     <div class="grid">
+
       <div class="card clickable">
         <h3>Resume</h3>
-        <p><a class="btn primary" href="assets/LARISA FORBS_L&D_Resume.pdf">Read</a></p>
-        <small> Open PDF</small>
+        <p>
+          <a
+            class="btn primary"
+            href="assets/LARISA FORBS_L&D_Resume.pdf">
+            Read
+          </a>
+        </p>
+        <small>Open PDF</small>
       </div>
 
       <div class="card clickable">
         <h3>Portfolio</h3>
-        <p><a class="btn primary" href="assets/Larisa_Forbs_ID_Portfolio.pdf">Open PDF </a></p>
+        <p>
+          <a
+            class="btn primary"
+            href="assets/Larisa_Forbs_ID_Portfolio.pdf">
+            Open PDF
+          </a>
+        </p>
         <small>Detailed case writeups.</small>
       </div>
 
       <div class="card full clickable">
         <h3>Contact</h3>
         <p class="lede" style="margin:0">
-          Email: <a href="mailto:forbslarisa@gmail.com">forbslarisa@gmail.com</a> · New York / Pittsburgh / Chicago
+          Email:
+          <a href="mailto:forbslarisa@gmail.com">
+            forbslarisa@gmail.com
+          </a>
+          · New York / Pittsburgh / Chicago
         </p>
       </div>
+
     </div>
   </div>
 </section>
-  
+
+<!-- ACCESSIBILITY CERTIFICATE POP-UP -->
+
+<dialog
+  id="certificateDialog"
+  class="certificate-dialog"
+  aria-labelledby="certificateTitle">
+
+  <div class="certificate-header">
+
+    <h2 id="certificateTitle">
+      Section 508 Accessibility Certification
+    </h2>
+
+    <button
+      type="button"
+      class="certificate-close"
+      id="closeCertificate"
+      aria-label="Close certificate">
+      &times;
+    </button>
+
+  </div>
+
+  <div class="certificate-viewer">
+
+    <div
+      id="certificateMessage"
+      class="certificate-message"
+      role="status">
+      Loading certificate...
+    </div>
+
+    <iframe
+      id="certificateFrame"
+      title="GSA Section 508 Certificate of Completion"
+      hidden>
+    </iframe>
+
+    <div class="certificate-actions">
+      <a
+        id="certificateOriginalLink"
+        href="assets/Larisa_Forbs_Section_508_Certificate.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        hidden>
+        Open original PDF ↗
+      </a>
+    </div>
+
+  </div>
+
+</dialog>
+
 <footer class="footer">
   <div class="container">
     © <span id="year"></span> Larisa Forbs ·
-    <a href="assets/LARISA FORBS_L&D_Resume.pdf">Resume</a>
+    <a href="assets/LARISA FORBS_L&D_Resume.pdf">
+      Resume
+    </a>
   </div>
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  /* ACCESSIBILITY CERTIFICATE POP-UP */
+
+  const certificateDialog =
+    document.getElementById("certificateDialog");
+
+  const openCertificate =
+    document.getElementById("openCertificate");
+
+  const closeCertificate =
+    document.getElementById("closeCertificate");
+
+  const certificateFrame =
+    document.getElementById("certificateFrame");
+
+  const certificateMessage =
+    document.getElementById("certificateMessage");
+
+  const certificateOriginalLink =
+    document.getElementById("certificateOriginalLink");
+
+  const certificateURL =
+    "assets/Larisa_Forbs_Section_508_Certificate.pdf";
+
+  openCertificate.addEventListener("click", async () => {
+
+    certificateDialog.showModal();
+
+    certificateMessage.hidden = false;
+    certificateMessage.textContent = "Loading certificate...";
+    certificateFrame.hidden = true;
+    certificateOriginalLink.hidden = true;
+
+    try {
+
+      const response = await fetch(certificateURL, {
+        method: "HEAD"
+      });
+
+      if (!response.ok) {
+        throw new Error("Certificate not found");
+      }
+
+      const contentType =
+        response.headers.get("content-type") || "";
+
+      if (!contentType.toLowerCase().includes("application/pdf")) {
+        throw new Error("The file is not a PDF");
+      }
+
+      certificateFrame.src = certificateURL;
+      certificateFrame.hidden = false;
+      certificateMessage.hidden = true;
+
+      certificateOriginalLink.hidden = false;
+
+    } catch (error) {
+
+      certificateMessage.textContent =
+        "The certificate PDF is not available yet. " +
+        "Please check that it has been uploaded to the website.";
+
+    }
+
+  });
+
+  closeCertificate.addEventListener("click", () => {
+    certificateDialog.close();
+  });
+
+  certificateDialog.addEventListener("click", (event) => {
+
+    if (event.target === certificateDialog) {
+      certificateDialog.close();
+    }
+
+  });
+
 </script>
 
-  
 </body>
 </html>
