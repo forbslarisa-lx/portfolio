@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore eight interactive learning samples designed by Larisa Forbs, from technical training and onboarding to instructor support.">
+  <title>Interactive Learning Gallery | Larisa Forbs</title>
+  <style>
+    :root {
+      --teal-950: #073f43;
+      --teal-800: #0b6268;
+      --teal-500: #2aa6a5;
+      --gold: #d8aa53;
+      --ink: #17262a;
+      --muted: #52676c;
+      --cream: #fffdf8;
+      --line: rgba(14, 91, 95, .17);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font: 16px/1.65 Inter, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at 90% 20%, #e5f4f1 0, transparent 31%), var(--cream);
+    }
+    body.player-open { overflow: hidden; }
+    a { color: inherit; }
+    button { font: inherit; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .skip-link { position: absolute; left: 16px; top: -80px; z-index: 20; padding: 12px 16px; background: white; }
+    .skip-link:focus { top: 10px; }
+    .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+
+    .site-header { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(255,253,248,.96); backdrop-filter: blur(16px); }
+    .nav-shell { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 74px; }
+    .brand { color: var(--teal-950); font-size: 1.15rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .nav-links a { padding: 9px 15px; border: 1px solid var(--line); border-radius: 999px; background: white; color: var(--teal-950); font-size: .875rem; font-weight: 700; text-decoration: none; }
+    .nav-links a:hover, .nav-links a[aria-current] { border-color: var(--teal-800); background: var(--teal-950); color: white; }
+
+    .hero { position: relative; overflow: hidden; padding: clamp(62px, 9vw, 112px) 0 95px; background: var(--teal-950); color: white; }
+    .hero::before, .hero::after { position: absolute; content: ""; border: 1px solid rgba(191,230,226,.18); border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 750px; height: 750px; right: -310px; top: -300px; }
+    .hero::after { width: 510px; height: 510px; right: -90px; top: 95px; }
+    .hero-inner { position: relative; z-index: 1; max-width: 830px; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 20px; color: #ead19a; font-size: .8rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 31px; height: 2px; background: var(--gold); }
+    h1 { margin: 0; font-size: clamp(3.1rem, 8vw, 6rem); line-height: 1.03; letter-spacing: -.055em; }
+    .hero p:not(.eyebrow) { max-width: 680px; margin: 27px 0 0; color: #d4e9e7; font-size: clamp(1.05rem, 2vw, 1.25rem); }
+    .hero-bottom { display: flex; align-items: center; gap: 20px; margin-top: 34px; }
+    .hero-bottom a { display: inline-flex; align-items: center; min-height: 46px; padding: 10px 20px; border-radius: 999px; background: var(--gold); color: var(--teal-950); font-size: .9rem; font-weight: 800; text-decoration: none; }
+    .hero-bottom a:hover { background: #f0cb7d; }
+    .hero-bottom span { color: #bfe6e2; font-size: .875rem; }
+
+    .gallery-section { padding: 75px 0 100px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 30px; }
+    .section-label { margin: 0 0 10px; color: var(--teal-800); font-size: .8rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h2 { margin: 0; color: var(--teal-950); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.16; letter-spacing: -.035em; }
+    .section-note { max-width: 360px; margin: 0; color: var(--muted); font-size: .96rem; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+
+    .course-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 25px; background: white; box-shadow: 0 18px 43px rgba(8,67,71,.07); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+    .course-card:hover { transform: translateY(-5px); box-shadow: 0 25px 55px rgba(8,67,71,.14); }
+    .course-art { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 230px; overflow: hidden; padding: 24px; background: linear-gradient(135deg, var(--art-start), var(--art-end)); color: white; isolation: isolate; }
+    .course-art::before { position: absolute; z-index: -1; width: 310px; height: 310px; right: -65px; top: -110px; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; content: ""; }
+    .course-art::after { position: absolute; z-index: -1; width: 220px; height: 220px; right: 24px; bottom: -125px; border: 35px solid rgba(255,255,255,.11); border-radius: 50%; content: ""; }
+    .art-label { align-self: flex-start; padding: 7px 11px; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; background: rgba(0,0,0,.12); font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .art-title { max-width: 370px; font-size: clamp(1.55rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.12; letter-spacing: -.04em; text-wrap: balance; }
+    .course-copy { display: flex; flex: 1; flex-direction: column; padding: 24px 27px 25px; }
+    .course-type { margin: 0 0 9px; color: var(--teal-800); font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .course-copy h3 { margin: 0; font-size: 1.35rem; line-height: 1.25; letter-spacing: -.025em; }
+    .course-copy p:not(.course-type) { margin: 12px 0 24px; color: var(--muted); font-size: .96rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
+    .card-footer span { color: var(--teal-800); font-size: .86rem; font-weight: 800; }
+    .card-footer strong { color: var(--teal-950); font-size: .86rem; }
+    .gallery-footnote { margin: 30px 0 0; color: var(--muted); font-size: .9rem; }
+    .footer { padding: 27px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .footer .container { display: flex; justify-content: space-between; gap: 20px; }
+    .footer a { color: var(--teal-800); font-weight: 700; }
+
+    .player { width: min(1240px, calc(100vw - 32px)); height: min(90dvh, 890px); max-width: none; max-height: none; padding: 0; border: 1px solid rgba(255,255,255,.6); border-radius: 19px; background: white; color: var(--ink); box-shadow: 0 35px 100px rgba(0,0,0,.36); overflow: hidden; }
+    .player::backdrop { background: rgba(4,35,39,.82); backdrop-filter: blur(6px); }
+    .player-layout { display: flex; flex-direction: column; height: 100%; }
+    .player-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; padding: 13px 22px; border-bottom: 1px solid var(--line); }
+    .player-header p { margin: 0; color: var(--teal-800); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .player-header h2 { margin: 2px 0 0; font-size: clamp(1rem, 2vw, 1.3rem); }
+    .player-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .player-actions a { padding: 9px 14px; border-radius: 999px; background: var(--teal-950); color: white; font-size: .8rem; font-weight: 750; text-align: center; text-decoration: none; }
+    .player-actions a:hover { background: var(--teal-800); }
+    .player-close { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: #f2f8f6; color: var(--teal-950); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+    .player-close:hover { background: #dceeed; }
+    .player iframe { display: block; flex: 1; width: 100%; min-height: 0; border: 0; background: #f6f8f7; }
+
+    @media (max-width: 760px) {
+      .nav-shell { align-items: flex-start; flex-direction: column; gap: 9px; padding: 14px 0; }
+      .nav-links { gap: 6px; }
+      .nav-links a { padding: 7px 11px; }
+      .hero { padding: 65px 0 75px; }
+      .hero-bottom { flex-wrap: wrap; }
+      .gallery-section { padding: 55px 0 75px; }
+      .gallery-grid { grid-template-columns: 1fr; gap: 20px; }
+      .section-head { display: block; }
+      .section-note { margin-top: 13px; }
+      .course-art { min-height: 205px; }
+      .player { width: calc(100vw - 12px); height: calc(100dvh - 12px); border-radius: 11px; }
+      .player-header { padding: 10px 12px; }
+      .player-actions a { max-width: 112px; padding: 7px 10px; line-height: 1.2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to gallery</a>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="../index.html">Larisa Forbs</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="digital.html">Projects</a>
+        <a href="story-driven-learning.html">Pedro's story</a>
+        <a href="interactive-learning-gallery.html" aria-current="page">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">Live course previews</p>
+        <h1 id="page-title">Interactive<br>Learning Gallery</h1>
+        <p>Learning experiences are better explored than described. Open a sample to see the storytelling, structure, and interaction inside the course.</p>
+        <div class="hero-bottom">
+          <a href="#gallery">Explore the courses</a>
+          <span>Eight interactive samples</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Selected work</p>
+            <h2 id="gallery-title">Choose a course to explore</h2>
+          </div>
+          <p class="section-note">Each preview opens here in a large player. You can also open it in a separate tab.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <a class="course-card" href="https://forbslarisa-lx.github.io/GitHup-Repo/inside-casas-reading-steps-from-blueprint-to-classroom-reality-scorm12-F3qXQDck/scormcontent/index.html">
+            <div class="course-art" style="--art-start:#084f54;--art-end:#258f8a" aria-hidden="true"><span class="art-label">Adult education</span><span class="art-title">Reading STEPS<br>in context.</span></div>
+            <div class="course-copy"><p class="course-type">Instructor professional learning</p><h3>Inside CASAS Reading STEPS</h3><p>Explore how assessment demands connect to the reading tasks learners meet in real life.</p><div class="card-footer"><span>Assessment · Instructor support</span><strong>Launch sample</strong></div></div>
+          </a>
+
+          <a class="course-card" href="https://forbslarisa-lx.github.io/GitHup-Repo/welcome-to-vivid-world-apparel-your-first-30-days-scorm12-R5XtNBpu/scormcontent/index.html">
+            <div class="course-art" style="--art-start:#633c70;--art-end:#bf798e" aria-hidden="true"><span class="art-label">Onboarding</span><span class="art-title">Your first<br>30 days.</span></div>
+            <div class="course-copy"><p class="course-type">Retail onboarding</p><h3>Welcome to VividWorld Apparel</h3><p>A practical introduction to the first month on the job, built around real decisions and daily work.</p><div class="card-footer"><span>Workplace learning · Scenarios</span><strong>Launch sample</strong></div></div>
+          </a>
+
+          <a class="course-card" href="https://forbslarisa-lx.github.io/GitHup-Repo/national-context-and-safety-culture-organizational-behavior-in-high-risk-industries-scorm12-j3Jgi7Ml/scormcontent/index.html">
+            <div class="course-art" style="--art-start:#183e53;--art-end:#547f8f" aria-hidden="true"><span class="art-label">High-risk industries</span><span class="art-title">Culture shapes<br>safety.</span></div>
+            <div class="course-copy"><p class="course-type">Technical workforce learning</p><h3>National Context &amp; Safety Culture</h3><p>See how organizational habits and human factors affect safety in complex technical work.</p><div class="card-footer"><span>Safety · Reflection</span><strong>Launch sample</strong></div></div>
+          </a>
+
+          <a class="course-card" href="https://forbslarisa-lx.github.io/GitHup-Repo/mastering-data-presentation-describing-charts-and-trends-in-professional-english-scorm12-cYXs1GLv/scormcontent/index.html">
+            <div class="course-art" style="--art-start:#51542e;--art-end:#9eaa60" aria-hidden="true"><span class="art-label">Professional English</span><span class="art-title">Make data<br>make sense.</span></div>
+            <div class="course-copy"><p class="course-type">Communication for engineers</p><h3>Mastering Data Presentation</h3><p>Practice explaining charts, trends, and relationships in clear professional English.</p><div class="card-footer"><span>Data · Communication</span><strong>Launch sample</strong></div></div>
+          </a>
+
+          <a class="course-card" href="https://forbslarisa-lx.github.io/GitHup-Repo/mastering-job-interview-strategies-for-intermediate-english-speakers-scorm12-QCWa_AcV/scormcontent/index.html.html">
+            <div class="course-art" style="--art-start:#725034;--art-end:#d29958" aria-hidden="true"><span class="art-label">Career development</span><span class="art-title">Tell your<br>story well.</span></div>
+            <div class="course-copy"><p class="course-type">Interview preparation</p><h3>Job Interview Strategies</h3><p>Use language scaffolds and structured practice to prepare for professional interviews.</p><div class="card-footer"><span>Career skills · Language</span><strong>Launch sample</strong></div></div>
+          </a>
+
+          <a class="course-card" href="https://forbslarisa-lx.github.io/GitHup-Repo/us-and-them-understanding-xenophobia-scorm12-GfnFiDRn/scormcontent/index.html">
+            <div class="course-art" style="--art-start:#744f56;--art-end:#c28b89" aria-hidden="true"><span class="art-label">Museum learning</span><span class="art-title">Who belongs<br>to “us”?</span></div>
+            <div class="course-copy"><p class="course-type">Social understanding</p><h3>Us and Them: Understanding Xenophobia</h3><p>Reflection and examples help learners examine assumptions about identity and belonging.</p><div class="card-footer"><span>Reflection · Inclusion</span><strong>Launch sample</strong></div></div>
+          </a>
+
+          <a class="course-card" href="https://forbslarisa-lx.github.io/GitHup-Repo/queerology-identity-power-and-social-structures-scorm12-NdQzF9SD/scormcontent/index.html">
+            <div class="course-art" style="--art-start:#403e72;--art-end:#857ab8" aria-hidden="true"><span class="art-label">Academic translation</span><span class="art-title">Identity.<br>Power. Society.</span></div>
+            <div class="course-copy"><p class="course-type">Public-facing learning</p><h3>Queerology: Identity, Power &amp; Social Structures</h3><p>Explore how complex social concepts can become accessible learning for a broader audience.</p><div class="card-footer"><span>Knowledge translation · Inclusion</span><strong>Launch sample</strong></div></div>
+          </a>
+
+          <a class="course-card" href="https://forbslarisa-lx.github.io/GitHup-Repo/lms-deployment-learner-experience-demo-scorm12-zXGm6Isp/scormcontent/index.html">
+            <div class="course-art" style="--art-start:#195b55;--art-end:#66aa94" aria-hidden="true"><span class="art-label">Learning technology</span><span class="art-title">From course<br>to learner.</span></div>
+            <div class="course-copy"><p class="course-type">LMS experience demo</p><h3>LMS Deployment &amp; Learner Experience</h3><p>See a sample of packaged digital learning presented to the learner.</p><div class="card-footer"><span>SCORM · Delivery</span><strong>Launch sample</strong></div></div>
+          </a>
+        </div>
+        <p class="gallery-footnote">These are interactive previews. Learning progress is not recorded on this portfolio site.</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="player" id="course-player" aria-labelledby="player-title">
+    <div class="player-layout">
+      <div class="player-header">
+        <div><p>Course preview</p><h2 id="player-title">Interactive sample</h2></div>
+        <div class="player-actions">
+          <a id="player-fullscreen" href="#" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+          <button type="button" class="player-close" id="player-close" aria-label="Close course preview">&times;</button>
+        </div>
+      </div>
+      <iframe id="player-frame" title="Interactive course preview" allow="fullscreen; autoplay"></iframe>
+    </div>
+  </dialog>
+
+  <footer class="footer"><div class="container"><span>&copy; Larisa Forbs</span><a href="digital.html">Explore project case studies</a></div></footer>
+  <script>
+    const dialog = document.querySelector('#course-player');
+    const frame = document.querySelector('#player-frame');
+    const title = document.querySelector('#player-title');
+    const fullscreen = document.querySelector('#player-fullscreen');
+
+    for (const card of document.querySelectorAll('.course-card')) {
+      card.addEventListener('click', (event) => {
+        if (typeof dialog.showModal !== 'function') return;
+        event.preventDefault();
+        const courseTitle = card.querySelector('h3').textContent.trim();
+        title.textContent = courseTitle;
+        frame.title = courseTitle + ' interactive course preview';
+        frame.src = card.href;
+        fullscreen.href = card.href;
+        dialog.showModal();
+        document.body.classList.add('player-open');
+      });
+    }
+
+    document.querySelector('#player-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      frame.removeAttribute('src');
+      document.body.classList.remove('player-open');
+    });
+  </script>
+</body>
+</html>
